@@ -1,0 +1,163 @@
+﻿@using CapaServicios.Servicios
+
+@{
+    ViewBag.Title = "PROYECTOS SELECCIONADOS";
+}
+
+@using (Html.BeginForm("ProyectosVeedor", "Veedor", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+    <h2>Proyectos seleccionados por el veedor</h2>
+    <p>
+        Recuerda que, en cada paso del control social, puedes pararte encima de cada término y encontrarás su explicación.<br />
+        Tener acceso rápido a cada paso mediante la línea de navegación numerada.<br />
+        Y si deseas descargar el registro, debes primero guardar la información ingresada
+
+    </p>
+    <div class="form-vertical">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div id="divFiltros" style="display: none; margin: 20px 0 0 0">
+
+            <div>
+
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+                        @Html.Label("Nombre del proyecto:")
+                        @Html.TextBox("FiltroNombre", null, htmlAttributes: new { @class = "form-control" })
+
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        @Html.Label("Entidad responsable:")
+                        @Html.TextBox("FiltroEntidad", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonBuscar)</button>
+                            @if (Request.QueryString.HasKeys())
+                            {
+                                <a href="@Url.Action("ProyectosVeedor")" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonMostrarTodos)</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="divGridGF" style="margin: 0px 0 0px 0">
+            <table id="grid-table"></table>
+            <div id="grid-pager"></div>
+        </div>
+    </div>
+    <br />
+   
+}
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('input, select').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    $('input, select, button')[$('input, select, button').index(this) + 1].focus();
+                }
+            });
+            //$('input, select, textarea').on("keypress", function () {
+            //    $input = $(this);
+            //    setTimeout(function () {
+            //        $input.val($input.val().toUpperCase());
+            //    }, 50);
+            //})
+        });
+    </script>
+}
+@section GridSection {
+
+    <script type="text/javascript">
+
+
+        $('#btnHerramientasBusqueda').click(function () {
+            $('#divFiltros').slideToggle();
+            return false;
+        });
+
+        @if (Request.QueryString.HasKeys())
+        {
+            @: $('#divFiltros').show();
+
+        }
+        jQuery(function ($) {
+                var gridSelector = "#grid-table";
+                var pagerSelector = "#grid-pager";
+
+                //resize to fit page size
+                $(window).on('resize.jqGrid', function () {
+                    $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+                });
+
+                //resize on sidebar collapse/expand
+                var parentColumn = $(gridSelector).closest('[class*="col-"]');
+                $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                    if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                        //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                        setTimeout(function () {
+                            $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                        }, 0);
+                    }
+                });
+
+                function enableTooltips(table) {
+                    $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                    $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+                }
+
+                $(document).one('ajaxloadstart.page', function () {
+                    $(gridSelector).jqGrid('GridUnload');
+                    $('.ui-jqdialog').remove();
+                });
+
+
+                function formatUrl(cellValue) {
+
+                     return "<a href='@Url.Action("Paso1")/" + cellValue + "'><u>Ver</u></a>";
+                }
+                 jQuery(gridSelector).jqGrid({
+                    height: '100%',
+                    autowidth: true,
+                    url: '@Url.Action("ObtenerProyectosVeedor")',
+                    mtype: 'POST',
+                    datatype: "json",
+                    colNames: [' ', 'Nombre', 'Entidad responsable'],
+                    colModel: [
+                        { name: 'Id', index: 'Id', key: true, width: 100, align: "center", sortable: true, formatter: formatUrl },
+                        { name: 'NombreObjeto', index: 'NombreObjeto', width: 250, sortable: false },
+                        { name: 'EntidadResponsable', index: 'EntidadResponsable', align: "center", width: 150 },
+                    ],
+               viewrecords: true,
+               rowNum: 50,
+               rowList: [50,100, 150, 200, 500],
+                pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                var table = this;
+                setTimeout(function () {
+                updatePagerIcons(table);
+                enableTooltips(table);
+                }, 0);
+                }
+                 });
+            $(window).triggerHandler('resize.jqGrid');
+        });
+
+    </script>
+}

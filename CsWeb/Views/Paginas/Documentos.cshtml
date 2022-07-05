@@ -1,0 +1,140 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.ContenidoSitio
+
+@{
+    ViewBag.Title = "Documentos";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@*<link rel="stylesheet" type="text/css" href="~/Portal/css/styles.css" media="screen" />*@
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Documentos de consulta<br /><br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 titulopag">
+        Documentos de consulta<br />
+    </div>
+</div><br />
+<div class="page-container">
+    <div class="banner1">
+        <img src="~/Content/img/riav/banner_documentos.png" />
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-2 form-group">
+        </div>
+        <div class="col-sm-8 form-group tnormal text-justify">
+            <p>
+                Encuentra estudios, informes y documentos con datos, resultados de encuestas, investigaciones, bases de datos, informes internacionales, reportes sobre seguimiento a la implementación del Acuerdo de Paz, informes de la Contraloría General de la República y la Procuraduría General de la Nación y de otros organismos sobre la implementación del Acuerdo de Paz.
+            </p>
+        </div>
+        <br /> <br />
+        <div class="col-sm-2 form-group">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1 derecha titulodoc">
+            Normativos<br />
+        </div>
+        <div class="col-md-8 banner1">
+            <img src="~/Content/img/Riav/lineaAmarilla.png" />
+        </div>
+    </div>
+    <br />
+    <div class="amarilloclaro">
+        <br />
+        @for (int i = 0; i < ViewBag.Lista.Length; i = i + 3)
+        {
+            <div class="row">
+                <div class="col-sm-2 form-group ">
+                </div>
+                <a href=@ViewBag.Lista[i].Enlace target="_blank">
+                    <div class="col-sm-3 form-group">
+                        <img src="~/Content/img/Riav/@ViewBag.Lista[i].Imagen" style="max-width: 100%; " background-size: contain; />
+                    </div>
+                </a>
+                @if (i + 1 < ViewBag.Lista.Length)
+                {
+                    <a href=@ViewBag.Lista[i + 1].Enlace target="_blank">
+                        <div class="col-sm-3 form-group">
+                            <img src="~/Content/img/Riav/@ViewBag.Lista[i+1].Imagen" style="max-width: 100%; " background-size: contain; />
+                        </div>
+                    </a>
+                }
+
+                @*<div class="col-sm-1 form-group ">
+                    </div>*@
+                @if (i + 2 < ViewBag.Lista.Length)
+                {
+                    <a href=@ViewBag.Lista[i + 2].Enlace target="_blank">
+                        <div class="col-sm-3 form-group">
+                            <img src="~/Content/img/Riav/@ViewBag.Lista[i+2].Imagen" style="max-width: 100%; " background-size: contain; />
+                        </div>
+                    </a>
+                }
+
+
+                @*<div class="col-sm-1 form-group">
+                    </div>*@
+
+            </div>
+
+        }
+    </div>
+    <br /> <br /> <br />
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 derecha titulodoc">
+            Estudios e informes sobre los proyectos y la región<br />
+        </div>
+        <div class="col-md-5 banner1 ">
+            <img src="~/Content/img/Riav/lineaAmarilla.png" />
+        </div>
+    </div>
+    <br />
+    <div class="azul">
+        <br />
+        @for (int i = 0; i < ViewBag.ListaD.Length; i = i + 3)
+        {
+            <div class="row">
+                <div class="col-sm-2 form-group ">
+                </div>
+                <a href=@ViewBag.ListaD[i].Enlace target="_blank">
+                    <div class="col-sm-3 form-group ">
+                        <img src="~/Content/img/Riav/@ViewBag.ListaD[i].Imagen" style="max-width: 100%; " background-size: contain; />
+                    </div>
+                </a>
+                @if (i + 1 < ViewBag.ListaD.Length)
+                {
+                    <a href=@ViewBag.ListaD[i + 1].Enlace target="_blank">
+                        <div class="col-sm-3 form-group">
+                            <img src="~/Content/img/Riav/@ViewBag.ListaD[i+2].Imagen" style="max-width: 100%; " background-size: contain; />
+                        </div>
+                    </a>
+                }
+
+                @*<div class="col-sm-1 form-group ">
+                    </div>*@
+                @if (i + 2 < ViewBag.ListaD.Length)
+                {
+                    <a href=@ViewBag.ListaD[i + 2].Enlace target="_blank">
+                        <div class="col-sm-3 form-group">
+                            <img src="~/Content/img/Riav/@ViewBag.ListaD[i+2].Imagen" style="max-width: 100%; " background-size: contain; />
+                        </div>
+                    </a>
+                }
+                @*<div class="col-sm-1 form-group">
+                    </div>*@
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+<br />   <br />
+
+
+

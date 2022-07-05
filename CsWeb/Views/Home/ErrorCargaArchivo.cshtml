@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/shared/_LayoutError.cshtml";
+    ViewBag.Title = "Error carga archivo";
+}
+
+<div class="alert alert-danger">
+    <h1 class="text-danger">Lo sentimos!!</h1>
+    <h2 class="text-danger">El archivo o archivos que está intentando cargar supera el tamaño máximo total (500MB) permitido por el servidor.</h2>
+    <h3 class="text-info">@DateTime.Now</h3>
+</div>

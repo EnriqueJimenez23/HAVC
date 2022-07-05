@@ -1,0 +1,158 @@
+﻿@model CapaDominio.EntidadesNegocio.Pasos
+@using System.Globalization
+@using CapaServicios.Servicios
+
+<div class="banner1">
+    <img src="~/Content/img/Riav/Paso7.jpg" />
+</div>
+@using (Html.BeginForm("Paso7", "Veedor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PasosId)
+    @Html.HiddenFor(model => model.NumPaso)
+    @Html.HiddenFor(model => model.NombreObjeto)
+
+    <div>
+        <ul class="steps">
+            <li data-step="1" class="active">
+                <a href="@Url.Action("Paso1",  new {id = @Model.PasosId})">
+                    <span class="step">1</span>
+                </a>
+            </li>
+            <li data-step="2" class="active">
+                <a href="@Url.Action("Paso2",  new {id = @Model.PasosId})">
+                    <span class="step">2</span>
+                </a>
+            </li>
+            <li data-step="3" class="active">
+                <a href="@Url.Action("Paso3",  new {id = @Model.PasosId})">
+                    <span class="step">3</span>
+                </a>
+            </li>
+            <li data-step="4" class="active">
+                <a href="@Url.Action("Paso4",  new {id = @Model.PasosId})">
+                    <span class="step">4</span>
+                </a>
+            </li>
+            <li data-step="5" class="active">
+                <a href="@Url.Action("Paso5",  new {id = @Model.PasosId})">
+                    <span class="step">5</span>
+                </a>
+            </li>
+            <li data-step="6" class="active">
+                <a href="@Url.Action("Paso6",  new {id = @Model.PasosId})">
+                    <span class="step">6</span>
+                </a>
+            </li>
+            <li data-step="7" class="active">
+                <a href="@Url.Action("Paso7",  new {id = @Model.PasosId})">
+                    <span class="step">7</span>
+                </a>
+            </li>
+            <li data-step="8">
+                <a href="@Url.Action("Paso8",  new {id = @Model.PasosId})">
+                    <span class="step">8</span>
+                </a>
+            </li>
+            <li data-step="9">
+                <a href="@Url.Action("Paso9",  new {id = @Model.PasosId})">
+                    <span class="step">9</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <br /><p>En este paso a partir de la consolidación, organización y análisis de la información, lo siguiente será plasmar los resultados del ejercicio en un informe que sea redactado y construido por el grupo de veeduría ciudadana, se sugiere que contemple los siguientes elementos: introducción, metodología, resultados, recomendaciones, anexos y firmas.</p>
+          <div class="form-vertical">
+
+              <div class="col-lg-12 form-group">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4> @Model.NombreObjeto</h4>
+                      </div>
+
+                      <div class="panel-body">
+
+                          <div class="col-md-12">
+                              <a href="#" title="En el informe se hace la identificación del problema, la comunidad o población afectada, el lugar o territorio de implementación, se escribe literal el nombre del plan, programa o proyecto al que se le está haciendo seguimiento y se menciona la entidad pública responsable.">
+                                  @Html.LabelFor(model => model.ObjetoVeeduria)
+                              </a>
+                              @Html.EditorFor(model => model.ObjetoVeeduria, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.ValidationMessageFor(model => model.ObjetoVeeduria, "", new { @class = "text-danger" })
+                          </div>
+                          <div class="col-md-12">
+                              <a href="#" title="Explicación del contexto de la situación y caracterización del grupo de veeduría y la comunidad a la que representa">
+                                  @Html.LabelFor(model => model.Introduccion)
+                              </a>
+                              @Html.EditorFor(model => model.Introduccion, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.ValidationMessageFor(model => model.Introduccion, "", new { @class = "text-danger" })
+                          </div>
+                          <div class="col-md-12">
+                              <a href="#" title="Se debe especificar las actividades adelantadas por el grupo de veeduría, revisión documental, análisis de información, trabajo de campo, entre otros.">
+                                  @Html.LabelFor(model => model.Metodologia)
+                              </a>
+                              @Html.EditorFor(model => model.Metodologia, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.ValidationMessageFor(model => model.Metodologia, "", new { @class = "text-danger" })
+                          </div>
+                          <div class="col-md-12">
+                              <a href="#" title="Detallar el análisis de los resultados y contrastar el estado inicial y el estado final y determinar los niveles de impacto e incidencia a largo plazo de la implementación.">
+                                  @Html.LabelFor(model => model.Resultados)
+                              </a>
+                              @Html.EditorFor(model => model.ResultadosInf, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.ValidationMessageFor(model => model.Resultados, "", new { @class = "text-danger" })
+                          </div>
+                          <div class="col-md-12">
+                              <a href="#" title="Incorporar Sugerencias presentadas por el grupo de veeduría ciudadana o grupo de control social, para la mejora de implementación del plan, programa o proyecto.">
+                                  @Html.LabelFor(model => model.Recomendaciones)
+                              </a>
+                              @Html.EditorFor(model => model.Recomendaciones, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.ValidationMessageFor(model => model.Recomendaciones, "", new { @class = "text-danger" })
+                          </div>
+
+                      </div>
+                      <div class="ibox-title">
+                          <div class="row">
+                              <div class="col-sm-12">
+
+                                  <a href="@Url.Action("ProyectosVeedor")" class="btn btn-success btn-sm">@(ArchivoDeRecursos.BotonRegresar)</a>
+                                  <button class="btn btn-success btn-sm" type="submit">@(ArchivoDeRecursos.BotonGuardar)</button>
+                                  <a href="@Url.Action("Exp7",new { id = Model.PasosId, paso=7 })" class="btn btn-success btn-sm">Descargar reporte</a>
+                                  <a href="@Url.Action("Paso7Pdf",new { id = Model.PasosId})" class="btn btn-success btn-sm">Descargar pdf</a>
+                                  <a href="@Url.Action("Paso8", new { id = Model.PasosId })" class="btn btn-success btn-sm">Siguiente paso</a>
+                                  <a href="~/Content/Doc/PASOS7.pdf" class="btn btn-primary btn-sm" target="_blank">Ayuda</a>
+                                  <br /><br />
+                              </div>
+                          </div>
+
+
+                      </div>
+                  </div>
+              </div>
+             
+          </div>
+
+    @section Scripts {
+        <script type="text/javascript">
+
+            $('input, select, textarea').on("keypress", function () {
+                $input = $(this);
+                setTimeout(function () {
+                    $input.val($input.val().toUpperCase());
+                }, 50);
+            });
+
+
+            $('input, select, textarea').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    // $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+                }
+            });
+
+
+        </script>
+    }
+
+}

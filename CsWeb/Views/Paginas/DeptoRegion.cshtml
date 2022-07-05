@@ -1,0 +1,23 @@
+﻿
+<div class="page-container">
+    
+    <br />
+    <div class="page-content-holder">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1 derecha titulodoc">
+                ViewBag.Subregion<br />
+            </div>
+        </div>
+        @for (int i = 0; i < ViewBag.Lista.Length; i = i + 3)
+        {
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <div class="azulTitulo panel-heading titulopreg">
+                        <a href=@string.Format("DatosGeo?CodDepartamento='{0}",@ViewBag.Lista[i].CodDepartamento)>@ViewBag.Lista[i].Departamento</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

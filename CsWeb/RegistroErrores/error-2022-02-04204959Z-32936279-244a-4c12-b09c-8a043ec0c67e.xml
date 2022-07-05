@@ -1,0 +1,291 @@
+﻿<error errorId="32936279-244a-4c12-b09c-8a043ec0c67e" host="EGAVIRIA" type="System.IO.IOException" message="No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed." source="System" detail="System.Net.Mail.SmtpException: Error al enviar correo. ---&gt; System.IO.IOException: No se puede escribir datos de en la conexión de transporte: net_io_connectionclosed.&#xD;&#xA;   en System.Net.Mail.SmtpReplyReaderFactory.ProcessRead(Byte[] buffer, Int32 offset, Int32 read, Boolean readLine)&#xD;&#xA;   en System.Net.Mail.SmtpReplyReaderFactory.ReadLines(SmtpReplyReader caller, Boolean oneLine)&#xD;&#xA;   en System.Net.Mail.SmtpReplyReaderFactory.ReadLine(SmtpReplyReader caller)&#xD;&#xA;   en System.Net.Mail.CheckCommand.Send(SmtpConnection conn, String&amp; response)&#xD;&#xA;   en System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)&#xD;&#xA;   en System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException&amp; exception)&#xD;&#xA;   en System.Net.Mail.SmtpClient.Send(MailMessage message)&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Net.Mail.SmtpClient.Send(MailMessage message)&#xD;&#xA;   en CapaServicios.Servicios.CorreoElectronico.Enviar(Dictionary`2 configuracion, String correoDestino, String asunto, String mensaje) en D:\Veedurias\fuentes\Servicios\CorreoElectronico.cs:línea 49&#xD;&#xA;   en CapaDominio.ComponentesNegocio.UsuariosServicio.CrearUsuario(Usuario usuario) en D:\Veedurias\fuentes\ComponentesNegocio\UsuariosServicio.cs:línea 316&#xD;&#xA;   en CsWeb.Controllers.CuentaController.Registro(Veedor model) en D:\Veedurias\fuentes\CsWeb\Controllers\CuentaController.cs:línea 225&#xD;&#xA;   en lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   en System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   en System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2022-02-04T20:49:59.7495713Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:1568&#xD;&#xA;HTTP_CONTENT_TYPE:multipart/form-data; boundary=----WebKitFormBoundary9AsLBbrOwOOu2G2P&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6&#xD;&#xA;HTTP_COOKIE:COOKIE_SUPPORT=true; GLog=%7B%0A%20%20%20%20trackRPC%3Afalse%0A%7D; _ga=GA1.1.2021314084.1636463642; LFR_SESSION_STATE_20102=1637931177218; G_AUTHUSER_H=0; LFR_SESSION_STATE_42714=expired; LFR_SESSION_STATE_42705=1640726733088; LOGIN=656477617264677640676d61696c2e636f6d; SCREEN_NAME=6539545844795a3631386155414e6b372f38633063413d3d; GUEST_LANGUAGE_ID=es_ES; COMPANY_ID=20099; ID=597a38786f6c63674875704a6e576f4f787a616b56413d3d; LFR_SESSION_STATE_20119=1642198362363; LFR_SESSION_STATE_20103=1643143933508; JSESSIONID=8FEB759709EA7C75679298E3C4E67B64; LFR_SESSION_STATE_42706=1643146796039; __RequestVerificationToken_L3ZlZWR1cmlhcw2=XQajZWbFnVtUgKM4ax6QXSRLgfYwP0E8qseYAjFFu0ob2900woBTRO3zcnb1PTxgDmL1K6f6mSsfjn_MiYUH5CHWJWdFUzuOl7Nu5fueKgc1; ASP.NET_SessionId=gxfyzemhc5ssbsyeeyms2433; __RequestVerificationToken=VHY-In2RCv4o22-XRRsfabdc9EsLw7efIDip5Yu5bir5FWoKUUUiQvacyukWnukEK__NMrHJghrPQfo_xAdwvQw8k5Cr2qP2rkYAgHuFKTY1&#xD;&#xA;HTTP_HOST:localhost:49550&#xD;&#xA;HTTP_REFERER:http://localhost:49550/Cuenta/registro&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#xD;&#xA;HTTP_SEC_CH_UA:&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;&#xD;&#xA;HTTP_SEC_CH_UA_MOBILE:?0&#xD;&#xA;HTTP_SEC_CH_UA_PLATFORM:&quot;Windows&quot;&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_ORIGIN:http://localhost:49550&#xD;&#xA;HTTP_SEC_FETCH_SITE:same-origin&#xD;&#xA;HTTP_SEC_FETCH_MODE:navigate&#xD;&#xA;HTTP_SEC_FETCH_USER:?1&#xD;&#xA;HTTP_SEC_FETCH_DEST:document&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Content-Length: 1568&#xD;&#xA;Content-Type: multipart/form-data; boundary=----WebKitFormBoundary9AsLBbrOwOOu2G2P&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6&#xD;&#xA;Cookie: COOKIE_SUPPORT=true; GLog=%7B%0A%20%20%20%20trackRPC%3Afalse%0A%7D; _ga=GA1.1.2021314084.1636463642; LFR_SESSION_STATE_20102=1637931177218; G_AUTHUSER_H=0; LFR_SESSION_STATE_42714=expired; LFR_SESSION_STATE_42705=1640726733088; LOGIN=656477617264677640676d61696c2e636f6d; SCREEN_NAME=6539545844795a3631386155414e6b372f38633063413d3d; GUEST_LANGUAGE_ID=es_ES; COMPANY_ID=20099; ID=597a38786f6c63674875704a6e576f4f787a616b56413d3d; LFR_SESSION_STATE_20119=1642198362363; LFR_SESSION_STATE_20103=1643143933508; JSESSIONID=8FEB759709EA7C75679298E3C4E67B64; LFR_SESSION_STATE_42706=1643146796039; __RequestVerificationToken_L3ZlZWR1cmlhcw2=XQajZWbFnVtUgKM4ax6QXSRLgfYwP0E8qseYAjFFu0ob2900woBTRO3zcnb1PTxgDmL1K6f6mSsfjn_MiYUH5CHWJWdFUzuOl7Nu5fueKgc1; ASP.NET_SessionId=gxfyzemhc5ssbsyeeyms2433; __RequestVerificationToken=VHY-In2RCv4o22-XRRsfabdc9EsLw7efIDip5Yu5bir5FWoKUUUiQvacyukWnukEK__NMrHJghrPQfo_xAdwvQw8k5Cr2qP2rkYAgHuFKTY1&#xD;&#xA;Host: localhost:49550&#xD;&#xA;Referer: http://localhost:49550/Cuenta/registro&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#xD;&#xA;sec-ch-ua: &quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;&#xD;&#xA;sec-ch-ua-mobile: ?0&#xD;&#xA;sec-ch-ua-platform: &quot;Windows&quot;&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;Origin: http://localhost:49550&#xD;&#xA;Sec-Fetch-Site: same-origin&#xD;&#xA;Sec-Fetch-Mode: navigate&#xD;&#xA;Sec-Fetch-User: ?1&#xD;&#xA;Sec-Fetch-Dest: document&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Veedurias\fuentes\CsWeb\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="1568" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundary9AsLBbrOwOOu2G2P" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Cuenta/Registro" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Veedurias\fuentes\CsWeb\Cuenta\Registro" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="63318" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Cuenta/Registro" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="49550" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Cuenta/Registro" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="1568" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundary9AsLBbrOwOOu2G2P" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="COOKIE_SUPPORT=true; GLog=%7B%0A%20%20%20%20trackRPC%3Afalse%0A%7D; _ga=GA1.1.2021314084.1636463642; LFR_SESSION_STATE_20102=1637931177218; G_AUTHUSER_H=0; LFR_SESSION_STATE_42714=expired; LFR_SESSION_STATE_42705=1640726733088; LOGIN=656477617264677640676d61696c2e636f6d; SCREEN_NAME=6539545844795a3631386155414e6b372f38633063413d3d; GUEST_LANGUAGE_ID=es_ES; COMPANY_ID=20099; ID=597a38786f6c63674875704a6e576f4f787a616b56413d3d; LFR_SESSION_STATE_20119=1642198362363; LFR_SESSION_STATE_20103=1643143933508; JSESSIONID=8FEB759709EA7C75679298E3C4E67B64; LFR_SESSION_STATE_42706=1643146796039; __RequestVerificationToken_L3ZlZWR1cmlhcw2=XQajZWbFnVtUgKM4ax6QXSRLgfYwP0E8qseYAjFFu0ob2900woBTRO3zcnb1PTxgDmL1K6f6mSsfjn_MiYUH5CHWJWdFUzuOl7Nu5fueKgc1; ASP.NET_SessionId=gxfyzemhc5ssbsyeeyms2433; __RequestVerificationToken=VHY-In2RCv4o22-XRRsfabdc9EsLw7efIDip5Yu5bir5FWoKUUUiQvacyukWnukEK__NMrHJghrPQfo_xAdwvQw8k5Cr2qP2rkYAgHuFKTY1" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:49550" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:49550/Cuenta/registro" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_SEC_CH_UA">
+      <value string="&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_MOBILE">
+      <value string="?0" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_PLATFORM">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:49550" />
+    </item>
+    <item name="HTTP_SEC_FETCH_SITE">
+      <value string="same-origin" />
+    </item>
+    <item name="HTTP_SEC_FETCH_MODE">
+      <value string="navigate" />
+    </item>
+    <item name="HTTP_SEC_FETCH_USER">
+      <value string="?1" />
+    </item>
+    <item name="HTTP_SEC_FETCH_DEST">
+      <value string="document" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="YLKIGtD3ZZzZNELHE0gmGot5iwVlmGN6Ko1fYmPDwOTfJWrYZxX4V0AaX3Dfm_qI4Eky2fj7HcW0SGO62X-hX9YvXLjFZQt8vmMLf3NR2i81" />
+    </item>
+    <item name="VeedorId">
+      <value string="" />
+    </item>
+    <item name="Subregion">
+      <value string="Bajo Cauca y Nordeste Antioqueño" />
+    </item>
+    <item name="CodDepartamento">
+      <value string="63" />
+    </item>
+    <item name="CodMunicipio">
+      <value string="63001" />
+    </item>
+    <item name="Nombres">
+      <value string="Alfonso" />
+    </item>
+    <item name="Apellidos">
+      <value string="Gaviria" />
+    </item>
+    <item name="TipoIdentificacion">
+      <value string="Cédula de Ciudadanía" />
+    </item>
+    <item name="Identificacion">
+      <value string="17007287" />
+    </item>
+    <item name="Correo">
+      <value string="alfonso.gaviria.gonzalez@gmail.com" />
+    </item>
+    <item name="Telefono">
+      <value string="3108490325" />
+    </item>
+    <item name="Autorizo">
+      <value string="true" />
+      <value string="false" />
+    </item>
+  </form>
+  <cookies>
+    <item name="COOKIE_SUPPORT">
+      <value string="true" />
+    </item>
+    <item name="GLog">
+      <value string="%7B%0A%20%20%20%20trackRPC%3Afalse%0A%7D" />
+    </item>
+    <item name="_ga">
+      <value string="GA1.1.2021314084.1636463642" />
+    </item>
+    <item name="LFR_SESSION_STATE_20102">
+      <value string="1637931177218" />
+    </item>
+    <item name="G_AUTHUSER_H">
+      <value string="0" />
+    </item>
+    <item name="LFR_SESSION_STATE_42714">
+      <value string="expired" />
+    </item>
+    <item name="LFR_SESSION_STATE_42705">
+      <value string="1640726733088" />
+    </item>
+    <item name="LOGIN">
+      <value string="656477617264677640676d61696c2e636f6d" />
+    </item>
+    <item name="SCREEN_NAME">
+      <value string="6539545844795a3631386155414e6b372f38633063413d3d" />
+    </item>
+    <item name="GUEST_LANGUAGE_ID">
+      <value string="es_ES" />
+    </item>
+    <item name="COMPANY_ID">
+      <value string="20099" />
+    </item>
+    <item name="ID">
+      <value string="597a38786f6c63674875704a6e576f4f787a616b56413d3d" />
+    </item>
+    <item name="LFR_SESSION_STATE_20119">
+      <value string="1642198362363" />
+    </item>
+    <item name="LFR_SESSION_STATE_20103">
+      <value string="1643143933508" />
+    </item>
+    <item name="JSESSIONID">
+      <value string="8FEB759709EA7C75679298E3C4E67B64" />
+    </item>
+    <item name="LFR_SESSION_STATE_42706">
+      <value string="1643146796039" />
+    </item>
+    <item name="__RequestVerificationToken_L3ZlZWR1cmlhcw2">
+      <value string="XQajZWbFnVtUgKM4ax6QXSRLgfYwP0E8qseYAjFFu0ob2900woBTRO3zcnb1PTxgDmL1K6f6mSsfjn_MiYUH5CHWJWdFUzuOl7Nu5fueKgc1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="gxfyzemhc5ssbsyeeyms2433" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="VHY-In2RCv4o22-XRRsfabdc9EsLw7efIDip5Yu5bir5FWoKUUUiQvacyukWnukEK__NMrHJghrPQfo_xAdwvQw8k5Cr2qP2rkYAgHuFKTY1" />
+    </item>
+  </cookies>
+</error>

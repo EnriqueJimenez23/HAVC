@@ -1,0 +1,378 @@
+﻿html {
+    font-size: 14px;
+}
+
+.ui-jqgrid tr.jqgrow td {
+    white-space: normal !important;
+    height: auto;
+    vertical-align: text-top;
+    padding-top: 2px;
+}
+
+.ui-jqgrid .ui-jqgrid-bdiv {
+    position: relative;
+    margin: 0em;
+    padding: 0;
+    /*overflow: auto;*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.ui-jqgrid tr.ui-state-highlight.ui-row-ltr td {
+    border-right-color: #C7D3A9;
+}
+
+.ui-jqgrid tr.ui-state-highlight.ui-row-rtl td {
+    border-left-color: #C7D3A9;
+}
+
+.banner1 img {
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+    width: 100%;
+}
+
+.fondoGris {
+    /*padding-top: 1px;*/
+    min-height: 74px;
+    background-size: cover;
+    background-image: url('../../veedurias/Content/img/riav/gris_menu.png');
+    /*z-index: 10;*/
+}
+
+.azul {
+    background: url("../../veedurias/Content/img/riav/buscar.png") center center fixed;
+    background-repeat: repeat-y;
+    /*   padding-bottom: 25px;*/
+}
+
+.amarilloclaro {
+    background: url("../../veedurias/Content/img/riav/fondoAmClaro.png") center center fixed;
+    background-repeat: repeat;
+    /*   padding-bottom: 25px;*/
+}
+
+.mapa {
+    background: url("../../veedurias/Content/img/riav/mapa_completo.png") center center fixed;
+    background-repeat: no-repeat;
+    /*   padding-bottom: 25px;*/
+}
+
+.centrado {
+    text-align: center;
+}
+
+.derecha {
+    text-align: right;
+}
+
+.navmapa {
+    text-align: left;
+    font-family: 'WorkSans-Regular', sans serif;
+    color: #004884;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 0px;
+    padding-top: 0px;
+    line-height: 20px;
+    float: left;
+}
+
+.tnormal {
+    font-family: 'WorkSans-Regular', sans serif;
+    color: #4B4B4B;
+    font-size: 1rem; /*14px;*/
+    font-weight: normal;
+}
+
+.titulopag {
+    text-align: left;
+    font-family: 'Poppins-Bold', sans serif;
+    color: #004884;
+    font-size: 23px;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-top: 0px;
+    line-height: 20px;
+    float: left;
+}
+
+.titulocentro {
+    text-align: center;
+    font-family: 'Poppins-Bold', sans serif;
+    color: #004884;
+    font-size: 20px;
+    /*font-weight: bold;*/
+    padding-left: 20px;
+    padding-top: 0px;
+    line-height: 20px;
+    /*float: left;*/
+}
+
+.titulodoc {
+    font-family: 'Poppins-Bold', sans serif;
+    color: #004884;
+    font-size: 23px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 0px;
+    line-height: 20px;
+    float: left;
+}
+
+.titulopreg {
+    text-align: left;
+    font-family: 'Poppins-Bold', sans serif;
+    color: #004884;
+    font-size: 16px;
+    font-display: swap;
+    /*font-weight: bold;*/ padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    max-width: 90%;
+    padding-right: 10px;
+    /*display: table-cell;
+            vertical-align: middle;*/
+}
+
+.textohv {
+    text-align: center;
+    vertical-align: middle;
+    /*font-family: 'Poppins', normal;
+    font-weight: bold;*/
+    /*color: #004884;*/
+    /*font-size: 16px;*/
+    /*font-display: swap;*/
+    padding-top: 5px;
+    /*max-width: 90%;*/
+    /*display: table-cell;
+            vertical-align: middle;*/
+}
+
+.celdaAmDoc1 {
+    padding-top: 5px;
+    min-height: 55px;
+    max-width: 55%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.celdaAmDoc {
+    padding-top: 5px;
+    min-height: 55px;
+    max-width: 55%;
+    background-size: contain;
+    /*  background-size: cover;*/
+    background-image: url('../../Content/img/riav/itemAmDoc.png');
+    background-repeat: no-repeat;
+}
+
+.celdaAzDoc {
+    padding-top: 5px;
+    min-height: 55px;
+    max-width: 90%;
+    background-size: contain;
+    background-image: url('../../Content/img/riav/btn_azulD.png');
+    background-repeat: no-repeat;
+}
+
+.celdaMano {
+    padding-top: 5px;
+    min-height: 55px;
+    max-width: 60%;
+    background-size: contain;
+    background-image: url('../../Content/img/riav/btn_amarillo1.png');
+    background-repeat: no-repeat;
+}
+
+.texto_elemento {
+    /*text-align: left;*/
+    font-family: 'Poppins-Bold', sans serif;
+    color: #004884;
+    font-size: 13px;
+    /*float: left;*/
+    padding-top: 10px;
+    padding-left: 65px;
+    padding-right: 120px;
+}
+
+.texto_elementodoc {
+    /*text-align: left;*/
+    /*font-family: 'Work Sans', sans serif;*/
+    font-weight: bold;
+    color: #004884;
+    font-size: 12px;
+    /*float: left;*/
+    padding-top: 5px;
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.fondoAzulCelda {
+    font-family: 'WorkSans-Regular', sans serif;
+    padding-top: 5px;
+    min-height: 40px;
+    /*max-width: 60%;*/
+    background-size: contain;
+    background-image: url('../../Content/img/riav/fondoAzulCelda.png');
+    background-repeat: repeat;
+}
+
+.fondoAzulOscCelda {
+    font-family: 'WorkSans-Regular', sans serif;
+    font-weight: bold;
+    color: #ffffff;
+    padding-top: 5px;
+    min-height: 40px;
+    /*max-width: 60%;*/
+    background-size: contain;
+    background-image: url('../../Content/img/riav/fondoAzulPr.png');
+    background-repeat: repeat;
+}
+
+.fondoModAzul {
+    /*font-family: 'Work Sans', sans serif;*/
+    font-weight: bold;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-right: 0px;
+    min-height: 80px;
+    /*max-width: 60%;*/
+    background-size: cover;
+    background-image: url('../../Content/img/riav/fondo_mod.png');
+    background-repeat: no-repeat repeat;
+}
+
+.fondoTextoAzul {
+    /*font-family: 'Work Sans', sans serif;*/
+    font-weight: bold;
+    color: #004884;
+    padding-top: 5px;
+    min-height: 40px;
+    /*max-width: 60%;*/
+    background-size: cover;
+    background-image: url('../../Content/img/riav/fondo_texto.png');
+    background-repeat: no-repeat repeat;
+}
+
+.icon_arrow {
+    float: right;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+
+.accesibilidad-menu {
+    background-color: #0066cd;
+    display: block;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    right: 0;
+    z-index: 200;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 3px #0000002b;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.accesibilidad-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 36px;
+    margin: 0;
+}
+
+    .accesibilidad-items li {
+        padding-left: 0px;
+    }
+
+    .accesibilidad-items a {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        border-radius: 8px;
+        transition: all .5s;
+        width: 180px;
+        padding: 2px 0px;
+        text-decoration: none;
+    }
+
+        .accesibilidad-items a:hover {
+            background-color: #004884;
+            -webkit-transform: translateX(-140px);
+            transform: translateX(-140px);
+            padding: 2px 10px;
+        }
+
+    .accesibilidad-items img {
+        display: flex;
+        width: 26px;
+        height: 26px;
+        padding: 4px;
+        margin: 5px 0;
+        background-color: #fff;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+    }
+
+    .accesibilidad-items span {
+        font-size: 13px;
+        margin-left: 10px;
+    }
+
+@media only screen and (max-width: 575.98px) {
+    .accesibilidad-items {
+        width: 30px;
+    }
+
+        .accesibilidad-items img {
+            width: 20px;
+            height: 20px;
+            margin: 3px 0;
+        }
+}
+
+.altoContraste {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    background-color: #fff;
+}
+
+.barra-navegacion-redes {
+    background-color: #3366c4;
+    min-height: 43px;
+}
+
+.nav-bar-redes {
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    min-width: 960px;
+}
+
+a.redes-fp {
+    padding: 6px 1px;
+    display: inline-block;
+    text-align: center;
+    opacity: .6;
+}
+
+.govco {
+    background-image: url(img/riav/lineaAzul.png);
+    height: 45px;
+    width: 150px;
+    background-position-x: -260px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}

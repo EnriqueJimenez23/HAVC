@@ -1,0 +1,40 @@
+﻿@using CapaDominio.EntidadesNegocio
+@using System.Globalization
+
+@model EspeciesOtros
+
+@if (Model != null)
+{
+   
+
+    <tr id="@Html.Raw(string.Format("tr_{0}", Model.IndiceId))">
+
+        <td>
+            @Html.DropDownListFor(model => model.Especie, (IEnumerable<SelectListItem>)ViewBag.ListaEspecies, new { Name = string.Format("Especies[{0}].Especie", Model.IndiceId), Id = string.Format("Especies[{0}]_Especie", Model.IndiceId), @class = "form-control" })
+            @Html.ValidationMessage(string.Format("Especies[{0}].Especie", Model.IndiceId), new { @class = "text-danger" })
+        </td>
+        <td>
+
+            @Html.EditorFor(model => model.Machos, new { Name = string.Format("Especies[{0}].Machos", Model.IndiceId), Id = string.Format("Especies[{0}]_Machos", Model.IndiceId), @class = "form-control" })
+            @Html.ValidationMessage(string.Format("Especies[{0}].Machos", Model.IndiceId), new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Hembras, new { Name = string.Format("Especies[{0}].Hembras", Model.IndiceId), Id = string.Format("Especies[{0}]_Hembras", Model.IndiceId), @class = "form-control" })
+            @Html.ValidationMessage(string.Format("Especies[{0}].Hembras", Model.IndiceId), new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Total, new { Name = string.Format("Especies[{0}].Total", Model.IndiceId), Id = string.Format("Especies[{0}]_Total", Model.IndiceId), @class = "form-control" })
+            @Html.ValidationMessage(string.Format("Especies[{0}].Total", Model.IndiceId), new { @class = "text-danger" })
+        </td>
+        <td>
+            @if (Model.IndiceId > 0)
+            {
+                @Html.Raw(string.Format(@"<a href=""#"" id=""btnQuitarEspecie_tr_{0}"" onclick=""quitarEspecie('#tr_{0}'); return false;"" class=""btn btn-success btn-sm""><span  aria-hidden=""true""></span>Quitar</a>", Model.IndiceId))
+            }
+        </td>
+        <td style="display:none;">
+            @Html.HiddenFor(model => model.EspeciesOtrosId, new { Name = string.Format("Especies[{0}].EspeciesId", Model.IndiceId), Id = string.Format("Especies[{0}]_EspeciesId", Model.IndiceId), @class = "form-control" })
+        </td>
+    </tr>
+
+}

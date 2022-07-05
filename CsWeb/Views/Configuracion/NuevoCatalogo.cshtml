@@ -1,0 +1,115 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.Catalogo
+
+@{
+    ViewBag.Title = "Catálogo de datos";
+    ViewBag.TituloFormulario = "Nuevo catálogo de datos";
+    ViewBag.SubTituloFormulario = "";
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Categoria, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EnumDropDownListFor(model => model.Categoria, htmlAttributes: new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.Categoria, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.CatalogoPadreId, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.DropDownListFor(model => model.CatalogoPadreId, new List<SelectListItem>(), new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.CatalogoPadreId, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Etiqueta, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Etiqueta, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Etiqueta, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Valor, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Valor, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Valor, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Descripcion, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+                    <a href="@Url.Action("Catalogos")" class="btn btn-success btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonCancelar)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        function cargarCatalogosHijos() {
+            var selectedId = $('#Categoria').val();
+            var selectedValue = '-1';
+            @{
+                if (Model != null)
+                {
+                    <text>
+                        selectedValue = '@Model.CatalogoPadreId'
+                    </text>
+                }
+            }
+            var urltarget = '@Url.Action("ObtenerCatalogosHijos")';
+            var divTarget = '#CatalogoPadreId';
+            var model = { CategoriaCatalogo: $('#Categoria').val() };
+            if (selectedId != null && selectedId !== '') {
+                cargarListas(urltarget, model, divTarget, selectedValue);
+            } else {
+                $(divTarget).empty();
+            }
+        }
+
+        $('#Categoria').change(function () {
+            cargarCatalogosHijos();
+        });
+
+        cargarCatalogosHijos();
+    });
+
+    </script>
+}
+
+
+

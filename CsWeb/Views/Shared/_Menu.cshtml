@@ -1,0 +1,21 @@
+﻿@using CapaServicios.Servicios;
+@model IEnumerable<Menu>
+
+@if (Model != null)
+{
+    foreach (Menu item in Model)
+    {
+        if (item.SubMenus.Count == 0)
+        {
+            string tag = item.EstaSeleccionado ? @"<li class=""active"">" : "<li>";
+            @(string.IsNullOrEmpty(item.Icono) ? Html.Raw(string.Format(@"{0}<a href=""{1}""><span class=""menu-text"">{2}</span></a><b class=""arrow""></b></li>", tag, item.Url, item.Etiqueta)) : Html.Raw(string.Format(@"{0}<a href=""{1}""><i class=""{3}""></i><span class=""menu-text"">{2}</span></a><b class=""arrow""></b></li>", tag, item.Url, item.Etiqueta, item.Icono)))
+        }
+        else
+        {
+            string tag = item.EstaSeleccionado ? @"<li class=""active open"">" : "<li>";
+            @Html.Raw(string.Format(@"{0}<a href=""#"" class=""dropdown-toggle""><i class=""{1}""></i><span class=""menu-text"">{2}</span><b class=""arrow fa fa-angle-down""></b></a><ul class=""submenu"">", tag, item.Icono, item.Etiqueta))
+            Html.RenderPartial("_Menu", item.SubMenus);
+            @Html.Raw("</ul></li>")
+        }
+    }
+}

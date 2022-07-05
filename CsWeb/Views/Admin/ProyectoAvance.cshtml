@@ -1,0 +1,114 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.ProyectoAvance
+
+@{
+    ViewBag.Title = "ADMINISTRACIÓN PROYECTOS";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProyectoId)
+    @Html.HiddenFor(model => model.ProyectoAvanceId)
+    @Html.HiddenFor(model => model.NombreProyecto)
+    <div class="form-vertical">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <h3>Avance proyecto @Model.NombreProyecto </h3>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        @Html.LabelFor(model => model.Indicador)
+                        @Html.EditorFor(model => model.Indicador, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Indicador, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Avance)
+                        @Html.EditorFor(model => model.Avance, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Avance, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.Meta)
+                        @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="row">
+                        <div class="col-sm-6 form-group">
+                            @Html.LabelFor(model => model.FechaAvance)
+                            @Html.EditorFor(model => model.FechaAvance, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>*@
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.FechaAvance, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FechaAvance, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FechaAvance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FechaMeta, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FechaMeta, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FechaMeta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Usuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FechaCreado, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FechaCreado, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FechaCreado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+            </div>
+        </div>
+    </div> <div class="row">
+        <div class="col-sm-12">
+            <a href="@Url.Action("Proyecto",new { id = Model.ProyectoId})" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                @(ArchivoDeRecursos.BotonRegresar)
+            </a>
+            <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+
+        </div>
+    </div>
+}
+@*@section Scripts {
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+                $('input, select').on('keydown', function (e) {
+                    var keyCode = e.keyCode || e.which;
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        //  $('input, select, button')[$('input, select, button').index(this) + 1].focus();
+                    }
+                });
+                $('input, select, textarea').on("keypress", function () {
+                    $input = $(this);
+                    setTimeout(function () {
+                        $input.val($input.val().toUpperCase());
+                    }, 50);
+                })
+            });
+        </script>
+    }*@
+
+

@@ -1,0 +1,191 @@
+﻿@using CapaDominio.EntidadesNegocio
+@*@model CapaDominio.EntidadesNegocio.DatosGeo*@
+
+
+@{
+    ViewBag.Title = "Formación";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Localización de proyectos a vigilar<br />
+    </div>
+</div><br /><br />
+
+            <div class="page-container">
+                <div class="text-justify">
+                    <div class="row">
+                        <div class="col-sm-2 form-group">
+                        </div>
+                        <div class="col-sm-8 form-group tnormal">
+                            <p>
+                                El mapa de localización de proyectos a vigilar contiene los municipios en los cuales se ejecutan los programas y proyectos de las 5 regiones (PDET): Catatumbo, Bajo Cauca y Nordeste Antioqueño, Pacífico y Frontera Nariñense, Alto Patía Norte del Cauca,  Sierra Nevada y Perijá.
+
+                                La información de los proyectos tendrán como fuente la Agencia Nacional de Territorio (proyectos de los PDET), proyectos del OCADPAZ y la gestión de información gestionada a nivel municipal y departamental), al completar la búsqueda puede identificar su subregión y municipio, y obtener la ficha técnica del proyecto.
+
+                            </p>
+                        </div>
+                        <br /> <br />
+                        <div class="col-sm-2 form-group">
+                        </div>
+                    </div>
+                </div>   <br />
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                        </div>
+
+                        <div class="titulocentro col-sm-6 form-group">
+                            Localización de proyectos a vigilar
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                        </div>
+                    </div>
+                    <div class="page-content-holder">
+
+
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1897 1081">
+                            <image width="1897" height="1081" xlink:href="~/Content/img/Riav/mapa_completo.png"></image>
+                            <a xlink:href="#" id="btnSie" data-toggle="tooltip" data-placement="bottom" title="¿Cómo usar la herramienta?">
+                                <rect x="765" y="74" fill="#fff" opacity="0" width="100" height="100" ></rect>
+                            </a>
+                            <a xlink:href="#" id="btnAnt">
+                                >
+                                <rect x="681" y="258" fill="#fff" opacity="0" width="87" height="96"></rect>
+                            </a>
+                            <a xlink:href="#" id="btnCat">
+                                <rect x="813" y="208" fill="#fff" opacity="0" width="60" height="67"></rect>
+                            </a>
+                            <a xlink:href="#" id="btnPac">
+                                <rect x="511" y="554" fill="#fff" opacity="0" width="92" height="100"></rect>
+                            </a>
+                            <a xlink:href="#" id="btnGF">
+                                <rect x="611" y="513" fill="#fff" opacity="0" width="63" height="99"></rect>
+                            </a>
+                        </svg>
+                    </div>
+                    <br /><br />
+                </div>
+
+                <div id="myModal" class="modal" tabindex="-1">
+
+                    <br /> <br /> <br /> <br />
+                    <div class="row">
+                        <div class="col-sm-2 form-group">
+                        </div>
+                        <div class="col-sm-8 form-group">
+                            <div class="modal-body">
+                                @* <a href="#" type="button" class="close" data-dismiss="modal" aria-label="Close">*@
+                                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                                @*<img src="~/Content/img/Riav/Recurso 34.png" style="max-width: 100%; " background-size: contain; />*@
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1189 468">
+                                    <image width="1189" height="468" xlink:href="~/Content/img/Riav/Recurso 34.png"></image>
+                                    <a xlink:href="type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <rect x="1083" y="3" fill="#fff" opacity="0" width="100" height="100"></rect>
+                                    </a>
+                                </svg>
+                                @*</a>*@
+                            </div>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="myMun" class="modal" tabindex="1">
+
+                    <br /> <br /> <br /> <br />
+                    <div class="row">
+                        <div class="col-sm-2 form-group">
+                        </div>
+                        <div class="col-sm-8 form-group">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            <img src="~/Content/img/Riav/icono_altopatia.png" id="imgx" /> <label class="titulopreg" id="lb" name="lb"></label>
+                                            <div class="banner1"><img src="~/Content/img/Riav/lineaAmarilla.png" /></div>
+                                        </div>
+                                        <table class="tnormal" style="width:100%" id="tabla"></table>
+                                        @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                                        @*      <img src="~/Content/img/Riav/ventana_blanca.png" style="max-width: 100%; " background-size: contain; />*@
+                                        @*</a>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                @section Scripts {
+                    <script src="~/Scripts/subregion.js"></script>
+                    <script type="text/javascript">
+
+                        $(document).ready(function () {
+                            $('#myModal').modal('toggle')
+
+                            $('.item-modal').click(function (e) {
+                                e.stopPropagation();
+                            });
+                            $('#ModalCrear').modal({
+                                backdrop: 'static',
+                                keyboard: false
+                            })
+
+                            $("#btnGF").click(function (e) {
+                                $('#imgx').attr('src', '/veedurias/Content/img/Riav/icono_altopatia.png');
+                                document.getElementById("lb").innerHTML = "Alto Patía y Norte del Cauca";
+                                cargarModal(Alto, 22);
+
+                            });
+                            $("#btnPac").click(function (e) {
+                                $('#imgx').attr('src', '/veedurias/Content/img/Riav/icono_pacifico.png');
+                                document.getElementById("lb").innerHTML = "Pacífico y Frontera Nariñense";
+                                cargarModal(Pacifico, 9);
+                            });
+                            $("#btnSie").click(function (e) {
+                                $('#imgx').attr('src', '/veedurias/Content/img/Riav/icono_sierra.png');
+                                document.getElementById("lb").innerHTML = "Sierra Nevada y Perijá";
+                                cargarModal(Sierra, 13);
+                            });
+                            $("#btnCat").click(function (e) {
+                                $('#imgx').attr('src', '/veedurias/Content/img/Riav/icono_catatumbo.png');
+                                document.getElementById("lb").innerHTML = "Catatumbo";
+                                cargarModal(Catatumbo, 6);
+                            });
+                            $("#btnAnt").click(function (e) {
+                                $('#imgx').attr('src', '/veedurias/Content/img/Riav/icono_bajocauca.png');
+                                document.getElementById("lb").innerHTML = "Bajo Cauca y Nordeste Antioqueño";
+                                cargarModal(Antioquia, 10);
+                            });
+                            function cargarModal(dx, x) {
+                                $("#tabla").clear;
+                                $('#myMun').modal({ show: true });
+                                var d = '<tr>' +
+                                    '<th></th>' +
+                                    '<th></th>' +
+                                    '<th></th>' +
+                                    '<th></th>' +
+                                    '</tr>';
+                                for (var i = 0; i <= x; i = i + 3) {
+                                    var j = i + 1; var k = i + 2;
+                                    d += '<tr><td></td>' +
+                                        '<td>' + "<a href='Proyectosgeo?cod=" + dx[i].codMunicipio + "'>" + dx[i].Municipio + "</a>" + '</td>' +
+                                        '<td>' + "<a href='Proyectosgeo?cod=" + dx[j].codMunicipio + "'>" + dx[j].Municipio + "</a>" + '</td>' +
+                                        '<td>' + "<a href='Proyectosgeo?cod=" + dx[k].codMunicipio + "'>" + dx[k].Municipio + "</a>" + '</td>' +
+                                        '</tr>';
+                                }
+                                $("#tabla").html(d);
+                            };
+                        });
+
+                    </script>
+                }

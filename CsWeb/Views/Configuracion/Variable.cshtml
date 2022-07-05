@@ -1,0 +1,69 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.VariableConfiguracion
+
+@{
+    ViewBag.Title = "Variable de configuración";
+    ViewBag.TituloFormulario = "Editar variable de configuración";
+    ViewBag.SubTituloFormulario = "";
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.VariableConfiguracionId)
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Categoria, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EnumDropDownListFor(model => model.Categoria, htmlAttributes: new {@class = "form-control", @readonly = "readonly"})
+                    @Html.ValidationMessageFor(model => model.Categoria, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Nombre, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly"}})
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Valor, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Valor, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Valor, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Descripcion, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+                    <a href="@Url.Action("Variables")" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonCancelar)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

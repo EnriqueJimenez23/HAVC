@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Herramienta Control Social";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<!-- page content -->
+@*<div class="page-content-wrap bg-light">*@
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Páginas de interés<br /><br />
+    </div>
+</div>
+@*<div class="row">
+    <div class="col-md-6 col-md-offset-1 titulopag">
+        Páginas de interés<br />
+    </div>
+</div><br />*@
+      <div class="page-content-wrap">
+          <div class="banner1">
+              <img src="~/Content/img/riav/banner_paginteres.png" />
+          </div>
+          <div class="page-content-holder">
+              <br />  <br />  <br />  <br />
+              <div class="row">
+                  <div class="col-sm-4 form-group">
+                  </div>
+
+                  <div class="col-sm-4 form-group titulocentro">
+                      Cifras y datos
+                  </div>
+
+                  <div class="col-sm-4 form-group">
+                  </div>
+              </div>
+              <div class="row">
+                  <br />
+                  @for (int i = 0; i < ViewBag.ListaC.Length; i = i + 3)
+                  {
+                  <div class="row">
+                      <div class="col-sm-2 form-group ">
+                      </div>
+                      <a href=@ViewBag.ListaC[i].Enlace target="_blank">
+                          <div class="col-sm-3 form-group">
+                              <img src="~/Content/img/Riav/@ViewBag.ListaC[i].Imagen" style="max-width: 90%; " background-size: contain; />
+                          </div>
+                      </a>
+                      @if (i + 1 < ViewBag.ListaC.Length)
+                      {
+                      <a href=@ViewBag.ListaC[i + 1].Enlace target="_blank">
+                          <div class="col-sm-3 form-group">
+                              <img src="~/Content/img/Riav/@ViewBag.ListaC[i+1].Imagen" style="max-width: 90%; " background-size: contain; />
+                          </div>
+                      </a>
+                      }
+
+                      @if (i + 2 < ViewBag.ListaC.Length)
+                      {
+                      <a href=@ViewBag.ListaC[i + 2].Enlace target="_blank">
+                          <div class="col-sm-3 form-group">
+                              <img src="~/Content/img/Riav/@ViewBag.ListaC[i+2].Imagen" style="max-width: 90%; " background-size: contain; />
+                          </div>
+                      </a>
+                       }
+                      </div>
+                  }
+              </div>
+          </div>
+              <!-- ./page content holder -->
+          </div>
+          @*</div>*@

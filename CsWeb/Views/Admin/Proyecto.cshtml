@@ -1,0 +1,361 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.Proyecto
+
+@{
+    ViewBag.Title = "ADMINISTRACIÓN PROYECTOS";
+}
+
+@using (Html.BeginForm())
+{
+    String perfil = ViewBag.Perfil;
+    @Html.Hidden("Perfil", perfil)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProyectoId)
+    <div class="form-vertical">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <h2>Administración Proyectos </h2>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        @Html.LabelFor(model => model.Subregion)
+                        @Html.DropDownListFor(model => model.Subregion, (IEnumerable<SelectListItem>)ViewBag.ListaSubregion, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Subregion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Departamento)
+                        @Html.DropDownListFor(model => model.CodDepartamento, new List<SelectListItem>(), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CodDepartamento, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.Municipio)
+                        @*@Html.DropDownListFor(model => model.CodMunicipio, (IEnumerable<SelectListItem>)ViewBag.listaMunicipio, new { @class = "form-control" })*@
+
+                        @Html.DropDownListFor(model => model.CodMunicipio, (IEnumerable<SelectListItem>)ViewBag.ListaMunicipio, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CodMunicipio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.Punto)
+                        @Html.DropDownListFor(model => model.Punto, (IEnumerable<SelectListItem>)ViewBag.ListaPuntos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Punto, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+
+                        @Html.LabelFor(model => model.Pilar)
+                        @Html.DropDownListFor(model => model.Pilar, (IEnumerable<SelectListItem>)ViewBag.ListaPilar, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Pilar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.Estrategia)
+                        @Html.EditorFor(model => model.Estrategia, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.Estrategia, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.Sector)
+                        @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.CodigoProyecto)
+                        @Html.EditorFor(model => model.CodigoProyecto, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.CodigoProyecto, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.NombreProyecto)
+                        @Html.EditorFor(model => model.NombreProyecto, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.NombreProyecto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.MontoInversión)
+                        @Html.EditorFor(model => model.MontoInversión, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.MontoInversión, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.FuenteRecursos)
+                        @Html.EditorFor(model => model.FuenteRecursos, new { htmlAttributes = new { @class = " form-control" } })
+                        @Html.ValidationMessageFor(model => model.FuenteRecursos, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.Descripcion)
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = " form-control", @rows = 5 } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        @Html.LabelFor(model => model.EstadoProyecto)
+                        @Html.EditorFor(model => model.EstadoProyecto, new { htmlAttributes = new { @class = " form-control" } })
+                        @*        @Html.ValidationMessageFor(model => model.EstadoProyecto, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="@Url.Action("Proyectos")" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                            Regresar
+                        </a>
+                        @if (ViewBag.Perfil != "Veedor")
+                        {
+                            <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar</button>
+
+                            <a href="@Url.Action("ProyectoAvance", new {id = Model.ProyectoId, nuevo=true })" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                Registrar avance del proyecto
+                            </a>
+                        }
+                        @if (ViewBag.Perfil == "Veedor")
+                        {
+                            <a href="@Url.Action("ProyectoSeleccionado", new {id = Model.ProyectoId, nuevo=true })" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                Seleccionar proyecto para hacer seguimiento
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 form-group">
+
+            <h2>Avances registrados</h2>
+        </div>
+        <div class="panel-body">
+            <div id="divGrid" style="margin: 10px 0 10px 0">
+                <table id="grid-table"></table>
+                <div id="grid-pager"></div>
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts {
+    <script type="text/javascript">
+       
+        function desabilitar() {
+            
+            $('input,select,textarea').attr('disabled', true);
+        }
+        $(document).ready(function () {
+            if ($('#Perfil').val() == 'Veedor')
+                $('input,select,textarea').attr('disabled', true);
+        });
+        cargarDepartamentos();
+       
+         //   cargarMunicipios();
+        function cargarDepartamentos() {
+                $('#CodDepartamento').empty();
+                var selectedId = $('#Subregion').val();
+                var selectedValue = '';
+                @{
+                    if (Model != null)
+                    {
+                      <text>
+                         selectedValue = '@Model.CodDepartamento'
+                      </text>
+                    }
+               }
+                $.ajax({
+                    url: '@Url.Action("ObtenerDepartamentos")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { subregion: $('#Subregion').val() },
+                    success: function (data) {
+                        if (data) {
+
+                            $.each(data, function (i, item) {
+                                if (item.Value === selectedValue) {
+                                    $('#CodDepartamento').append('<option value="' + item.Value + '" selected="selected">' + item.Text + '</option>');
+                                } else {
+                                    $('#CodDepartamento').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                                }
+                            });
+                        }
+                    },
+                    error: function (ex) {
+                        alert('Error recuperando la información.' + ex);
+                    }
+                });
+          }
+
+        function cargarMunicipios() {
+            $('#CodMunicipio').empty();
+             var selectedId = $('#CodDepartamento').val();
+                var selectedValue = '';
+                 @{
+                     if (Model != null)
+                     {
+                        <text>
+                            selectedValue = '@Model.CodMunicipio'
+                        </text>
+                     }
+                }
+                $.ajax({
+                    url: '@Url.Action("ObtenerMunicipios")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { codDepartamento: $('#CodDepartamento').val(), subregion: $('#Subregion').val() },
+                    success: function (data) {
+                        if (data) {
+                            $.each(data, function (i, item) {
+                                if (item.Value === selectedValue) {
+                                    $('#CodMunicipio').append('<option value="' + item.Value + '" selected="selected">' + item.Text + '</option>');
+                                } else {
+                                    $('#CodMunicipio').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                                }
+                            });
+                        }
+                    },
+
+                    error: function (ex) {
+                        alert('Error recuperando la información.' + ex);
+                    }
+                });
+          }
+        $('#Subregion').change(function () {
+            cargarDepartamentos();
+        });
+        $('#CodDepartamento').change(function () {
+                cargarMunicipios();
+            });
+
+            $('input, select, textarea').on("keypress", function () {
+                $input = $(this);
+                setTimeout(function () {
+                    $input.val($input.val().toUpperCase());
+                }, 50);
+            });
+
+        //estadoCampos();
+
+        //function estadoCampos() {
+        //    if ($('#Perfil').val() == 'Perfil') {
+        //        $('input,select,textarea').attr('disabled', true);
+        //    }
+        //}
+        $('input, select, textarea').on('keydown', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (e.keyCode === 13) {
+                e.preventDefault();
+               // $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+            }
+        });
+
+
+    </script>
+}
+@section GridSection {
+
+    <script type="text/javascript">
+
+        jQuery(function ($) {
+            var gridSelector = "#grid-table";
+            var pagerSelector = "#grid-pager";
+
+            $('#btnHerramientasBusqueda').click(function () {
+                $('#divFiltros').slideToggle();
+                return false;
+            });
+
+            @if (Request.QueryString.HasKeys())
+        {
+            @: $('#divFiltros').show();
+                            }
+
+            //resize to fit page size
+            $(window).on('resize.jqGrid', function () {
+                $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+            });
+
+            //resize on sidebar collapse/expand
+            var parentColumn = $(gridSelector).closest('[class*="col-"]');
+            $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                    //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                    setTimeout(function () {
+                        $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                    }, 0);
+                }
+            });
+
+
+
+            //replace icons with FontAwesome icons like above
+            function updatePagerIcons() {
+                var replacement =
+                {
+                    'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                    'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                    'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                    'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+                };
+                var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+                $(temp).each(function () {
+                    var icon = $(this);
+                    var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                    if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+                });
+            }
+
+            function enableTooltips(table) {
+                $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+            }
+
+            $(document).one('ajaxloadstart.page', function () {
+                $(gridSelector).jqGrid('GridUnload');
+                $('.ui-jqdialog').remove();
+            });
+
+            function formatUrl(cellValue) {
+
+                return "<a href='@Url.Action("ProyectoAvance")/" + cellValue+ "?nuevo=false'><u>Ver</u></a>";
+            }
+
+            jQuery(gridSelector).jqGrid({
+                height: '100%',
+                 url: '@Url.Action("ObtenerAvances", new { id = Model.ProyectoId })',
+                mtype: 'POST',
+                datatype: "json",
+                colNames: ['', 'Fecha avance', 'Indicador', 'Avance', 'Meta','Fecha Meta'],
+                colModel: [
+                   { name: 'Id', width: 40, align: "center", sortable: true, formatter: formatUrl },
+                   { name: 'FechaAvance', width: 70, align: "center",sortable: true },
+                   { name: 'Indicador', width: 120, sortable: true },
+                   { name: 'Avance', width: 70, sortable: true },
+                   { name: 'Meta', width: 70, sortable: true },
+                   { name: 'Meta', width: 70, sortable: true },
+                ],
+                viewrecords: true,
+                rowNum: 10,
+                rowList: [10, 20, 50, 100, 500],
+                pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                    var table = this;
+                    setTimeout(function () {
+                        updatePagerIcons(table);
+                        enableTooltips(table);
+                    }, 0);
+                }
+            });
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+        });
+
+    </script>
+}

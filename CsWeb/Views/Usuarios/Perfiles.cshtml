@@ -1,0 +1,168 @@
+﻿@using CapaServicios.Servicios
+@{
+    ViewBag.Title = "Perfiles de usuario";
+    ViewBag.TituloFormulario = "Perfiles de usuario";
+
+}
+
+<div>
+    <a href="@Url.Action("NuevoPerfil")" class="btn btn-success btn-sm">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        @(ArchivoDeRecursos.BotonNuevoRegistro)
+    </a>
+    @*<a href="#" id="btnHerramientasBusqueda" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+        @(ArchivoDeRecursos.BotonHerramientasBusqueda)
+    </a>*@
+
+    <div id="divFiltros" style="display: none; margin: 20px 0 0 0">
+        @using (Html.BeginForm("Perfiles", "Usuarios", FormMethod.Get))
+        {
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Nombre del perfil:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroNombrePerfil", null, htmlAttributes: new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonBuscar)</button>
+                            @if (Request.QueryString.HasKeys())
+                            {
+                                <a href="@Url.Action("Perfiles")" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonMostrarTodos)</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="divGrid" style="margin: 10px 0 10px 0">
+        <table id="grid-table"></table>
+        <div id="grid-pager"></div>
+    </div>
+</div>
+
+@section GridSection {
+
+    <script type="text/javascript">
+
+    jQuery(function ($) {
+        var gridSelector = "#grid-table";
+        var pagerSelector = "#grid-pager";
+
+        $('#btnHerramientasBusqueda').click(function () {
+            $('#divFiltros').slideToggle();
+            return false;
+        });
+
+        @if (Request.QueryString.HasKeys())
+        {
+            @: $('#divFiltros').show();
+        }
+
+        //resize to fit page size
+        $(window).on('resize.jqGrid', function () {
+            $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+        });
+
+        //resize on sidebar collapse/expand
+        var parentColumn = $(gridSelector).closest('[class*="col-"]');
+        $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+            if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                setTimeout(function () {
+                    $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                }, 0);
+            }
+        });
+
+        //if your grid is inside another element, for example a tab pane, you should use its parent's width:
+        /**
+        $(window).on('resize.jqGrid', function () {
+            var parent_width = $(grid_selector).closest('.tab-pane').width();
+            $(grid_selector).jqGrid( 'setGridWidth', parent_width );
+        })
+        //and also set width when tab pane becomes visible
+        $('#myTab a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+          if($(e.target).attr('href') == '#mygrid') {
+            var parent_width = $(grid_selector).closest('.tab-pane').width();
+            $(grid_selector).jqGrid( 'setGridWidth', parent_width );
+          }
+        })
+        */
+
+        //replace icons with FontAwesome icons like above
+        function updatePagerIcons() {
+            var replacement =
+            {
+                'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+            };
+            var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+            $(temp).each(function () {
+                var icon = $(this);
+                var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+            });
+        }
+
+        function enableTooltips(table) {
+            $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+            $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+        }
+
+        $(document).one('ajaxloadstart.page', function () {
+            $(gridSelector).jqGrid('GridUnload');
+            $('.ui-jqdialog').remove();
+        });
+
+        function formatUrl(cellValue) {
+            return "<a href='@Url.Action("Perfil")/" + cellValue + "'><u>Editar</u></a> | <a href='@Url.Action("EliminarPerfil")/" + cellValue + "'><u>Eliminar</u></a> | <a href='@Url.Action("Permisos")/" + cellValue + "'><u>Permisos</u></a>";
+        }
+
+        jQuery(gridSelector).jqGrid({
+            height: '100%',
+            url: '@Url.Action("ObtenerPerfiles")',
+            mtype: 'POST',
+            datatype: "json",
+            colNames: ['Acción', 'Nombre del perfil', 'Descripción', 'Activo'],
+            colModel: [
+                { name: 'Id', width: 90, align: "center", sortable: false, formatter: formatUrl },
+                { name: 'Id', width: 100, sortable: false },
+                { name: 'Descripcion', width: 270, sortable: false },
+                { name: 'Activo', width: 40, sortable: false }
+            ],
+            viewrecords: true,
+            rowNum: 10,
+            rowList: [10, 20, 50, 100, 500],
+            pager: pagerSelector,
+            altRows: true,
+            loadComplete: function () {
+                var table = this;
+                setTimeout(function () {
+                    updatePagerIcons(table);
+                    enableTooltips(table);
+                }, 0);
+            }
+        });
+        $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+    });
+
+    </script>
+}
+
+
+
+
+
+

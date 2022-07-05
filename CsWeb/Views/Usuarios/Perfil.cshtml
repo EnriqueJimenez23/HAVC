@@ -1,0 +1,52 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.Perfil
+
+@{
+    ViewBag.Title = "Editar un perfil de usuario";
+    ViewBag.TituloFormulario = "Editar un perfil de usuario";
+    ViewBag.SubTituloFormulario = "";
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.NombrePerfil)
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Activo, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Activo)
+                    @Html.ValidationMessageFor(model => model.Activo, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                <div class="col-sm-8">
+                    @Html.EditorFor(model => model.Descripcion, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+                    <a href="@Url.Action("Perfiles")" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonCancelar)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

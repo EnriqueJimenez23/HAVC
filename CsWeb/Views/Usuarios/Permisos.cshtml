@@ -1,0 +1,91 @@
+﻿@using CapaDominio.EntidadesNegocio
+@using CapaServicios.Servicios
+@model Perfil
+
+@{
+    ViewBag.Title = "Permisos de acceso";
+    ViewBag.TituloFormulario = string.Format("Permisos de acceso del perfil: {0}", Model.NombrePerfil);
+   
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.NombrePerfil)
+
+        @if (ViewBag.Permisos != null)
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    Acción
+                                </th>
+                                <th>
+                                    Url
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in (IEnumerable<Permiso>)ViewBag.Permisos)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        @if (Model.Permisos.Any(x => x.PermisoId == item.PermisoId))
+                                        {
+                                            <input type="checkbox" name="acciones" value="@item.PermisoId" checked="checked">
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="acciones" value="@item.PermisoId">
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (string.IsNullOrEmpty(item.Controlador) || string.IsNullOrEmpty(item.Accion))
+                                        {
+                                            <b>@item.Etiqueta</b>
+                                        }
+                                        else
+                                        {
+                                            @item.Etiqueta
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.Controlador) && !string.IsNullOrEmpty(item.Accion))
+                                        {
+                                            @Html.Raw(Url.Action(item.Accion, item.Controlador))
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <a href="@Url.Action("Perfiles")" class="btn btn-success btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonRegresar)
+                    </a>
+                    <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

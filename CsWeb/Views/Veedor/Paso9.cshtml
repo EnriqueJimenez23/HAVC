@@ -1,0 +1,263 @@
+﻿@model CapaDominio.EntidadesNegocio.Pasos9
+@using System.Globalization
+@using CapaServicios.Servicios
+
+<div class="banner1">
+    <img src="~/Content/img/Riav/Paso9.jpg" />
+</div>
+@using (Html.BeginForm("Paso9", "Veedor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PasosId)
+    @Html.HiddenFor(model => model.NombreObjeto)
+
+    <div>
+        <ul class="steps">
+            <li data-step="1" class="active">
+                <a href="@Url.Action("Paso1",  new {id = @Model.PasosId})">
+                    <span class="step">1</span>
+                </a>
+            </li>
+            <li data-step="2" class="active">
+                <a href="@Url.Action("Paso2",  new {id = @Model.PasosId})">
+                    <span class="step">2</span>
+                </a>
+            </li>
+            <li data-step="3" class="active">
+                <a href="@Url.Action("Paso3",  new {id = @Model.PasosId})">
+                    <span class="step">3</span>
+                </a>
+            </li>
+            <li data-step="4" class="active">
+                <a href="@Url.Action("Paso4",  new {id = @Model.PasosId})">
+                    <span class="step">4</span>
+                </a>
+            </li>
+            <li data-step="5" class="active">
+                <a href="@Url.Action("Paso5",  new {id = @Model.PasosId})">
+                    <span class="step">5</span>
+                </a>
+            </li>
+            <li data-step="6" class="active">
+                <a href="@Url.Action("Paso6",  new {id = @Model.PasosId})">
+                    <span class="step">6</span>
+                </a>
+            </li>
+            <li data-step="7" class="active">
+                <a href="@Url.Action("Paso7",  new {id = @Model.PasosId})">
+                    <span class="step">7</span>
+                </a>
+            </li>
+            <li data-step="8" class="active">
+                <a href="@Url.Action("Paso8",  new {id = @Model.PasosId})">
+                    <span class="step">8</span>
+                </a>
+            </li>
+            <li data-step="9" class="active">
+                <a href="@Url.Action("Paso9",  new {id = @Model.PasosId})">
+                    <span class="step">9</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <br /><p>Uno de los objetivos y propósitos para conformar veedurías ciudadanas está asociado a que las organizaciones civiles exijan que las entidades públicas garanticen el ejercicio efectivo de los derechos que estén asociados a la prestación de su servicio, por tanto, el grupo de veeduría juega un papel central en términos de representación, debido a que son elegidos y designados democráticamente y se convierten en el puente de comunicación entre las entidades públicas y la comunidad, referente a todo lo que se realice en el ejercicio de seguimiento, por tanto en este paso se sugiere al grupo de veeduría que comunique los avances y resultados a la comunidad que representa.</p>
+    <div class="form-vertical">
+
+        @*<div class="col-lg-12 form-group">*@
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4> @Model.NombreObjeto</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.FechaDivulgacion)
+                    @Html.TextBoxFor(model => model.FechaDivulgacion, null, htmlAttributes: new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.FechaDivulgacion, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    <a href="#" title="Son los medios a través de los cuales puede compartir los resultados y avances a la comunidad, algunas personas escuchan la radio, otras utilizan las redes sociales, otras se enteran de las cosas en los puntos de encuentro en el territorio, debe tener en cuenta los diferentes medios según las personas a las que quiera llegar.">
+                        @Html.LabelFor(model => model.MedioDivulgacion)
+                    </a>
+                    @Html.EditorFor(model => model.MedioDivulgacion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MedioDivulgacion, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    <a href="#" title="Es la información seleccionada por el grupo de veeduría que considera relevante a socializar con la comunidad, esta debe ser sintética, corta y clara.">
+                        @Html.LabelFor(model => model.InformacionPresentar)
+                    </a>
+                    @Html.EditorFor(model => model.InformacionPresentar, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InformacionPresentar, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    <a href="#" title="Definir si va a realizar un video para compartir en redes sociales, si va a realizar un resumen del informe, si va a crear audios explicativos, entre otros que le faciliten el ejercicio de compartir y socializar el informe.">
+                        @Html.LabelFor(model => model.Herramientas)
+                    </a>
+                    @Html.EditorFor(model => model.Herramientas, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Herramientas, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    <a href="#" title="Son las personas de la comunidad afectada que va a invitar a la socialización de avances resultados">
+                        @Html.LabelFor(model => model.AquienInvitara)
+                    </a>
+                    @Html.EditorFor(model => model.AquienInvitara, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AquienInvitara, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12">
+                    <a href="#" title="Son los temas centrales que se van a exponer en la reunión y que van a permitir organizar la información a presentar">
+                        @Html.LabelFor(model => model.Temas)
+                    </a>
+                    @Html.EditorFor(model => model.Temas, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AquienInvitara, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="@Url.Action("ProyectosVeedor")" class="btn btn-success btn-sm">@(ArchivoDeRecursos.BotonRegresar)</a>
+                        <a href="#" id="btn" class="btn btn-success btn-sm"><span aria-hidden="true"></span>Agregar requerimiento de información</a>
+                        <button class="btn btn-success btn-sm" type="submit">@(ArchivoDeRecursos.BotonGuardar)</button>
+                        <a href="@Url.Action("Exp",new { id = Model.PasosId, paso=9 })" class="btn btn-success btn-sm">Descargar reporte</a>
+                        <a href="~/Content/Doc/PASOS9.pdf" class="btn btn-primary btn-sm" target="_blank">Ayuda</a>
+                    </div>
+                </div>
+                <br /> <br />
+                <div id="divGrid" style="margin: 0px 0px 0">
+                    <table id="grid-table"></table>
+                    <div id="grid-pager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+   
+}
+@section Scripts {
+    <script type="text/javascript">
+
+            //$('input, select, textarea').on("keypress", function () {
+            //    $input = $(this);
+            //    setTimeout(function () {
+            //        $input.val($input.val().toUpperCase());
+            //    }, 50);
+            //});
+
+
+            $('input, select, textarea').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    // $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+                }
+            });
+
+              $("#btn").click(function (e) {
+        e.preventDefault();
+        agregarReg();
+    });
+
+        function agregarReg() {
+            if ($('#InformacionPresentar').val() != "" && $('#MedioDivulgacion').val() != "") {
+                $.ajax({
+                    url: '@Url.Action("CrearPaso9")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { PasosId: $('#PasosId').val(), FechaDivulgacion: $('#FechaDivulgacion').val(), MedioDivulgacion: $('#MedioDivulgacion').val(), InformacionPresentar: $('#InformacionPresentar').val(), Herramientas: $('#Herramientas').val() },
+                    success: function (data) {
+                        $('#grid-table').trigger('reloadGrid'); $('#FechaDivulgacion').val(''); $('#MedioDivulgacion').val(''); $('#InformacionPresentar').val(''); $('#Herramientas').val('');
+                    },
+                });
+            }
+    }
+    </script>
+}
+@section GridSection {
+    <script type="text/javascript">
+
+           jQuery(function ($) {
+                            var gridSelector = "#grid-table";
+                            var pagerSelector = "#grid-pager";
+                            //resize to fit page size
+                            //$(window).on('resize.jqGrid', function () {
+                            //    $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+                            //});
+
+                            // esta instruccion para encajar en el panel y comentar las lineas de arriba.
+                            $(window).resize(function () {
+                                $targetGrid.setGridWidth($(gridSelector).parent().width()); //perhaps add padding calculation here?
+                            });
+                            //resize on sidebar collapse/expand
+                            var parentColumn = $(gridSelector).closest('[class*="col-"]');
+                            $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                                if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                                    //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                                    setTimeout(function () {
+                                        $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                                    }, 0);
+                                }
+                            });
+                            //replace icons with FontAwesome icons like above
+                            function updatePagerIcons() {
+                                var replacement =
+                                {
+                                    'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                                    'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                                    'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                                    'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+                                };
+                                var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+                                $(temp).each(function () {
+                                    var icon = $(this);
+                                    var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                                    if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+                                });
+                            }
+
+                            function enableTooltips(table) {
+                                $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                                $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+                            }
+
+                            $(document).one('ajaxloadstart.page', function () {
+                                $(gridSelector).jqGrid('GridUnload');
+                                $('.ui-jqdialog').remove();
+                            });
+
+     @*function formatUrl(cellValue) {
+
+                return "<a href='@Url.Action("Paso9")/" + cellValue+ "'><u>Ver</u></a>";
+            }*@
+
+            jQuery(gridSelector).jqGrid({
+                height: '100%',
+                 url: '@Url.Action("ObtenerPaso9", new { id = Model.PasosId })',
+                mtype: 'POST',
+                datatype: "json",
+                colNames: ['', 'Fecha', 'Medio', 'Información', 'Herramientas','Aquien invitará'],
+                colModel: [
+                   { name: 'Pasos9Id', width: 1},
+                    { name: 'FechaDivulgacion', width: 150, align: "center",sortable: true },
+                    { name: 'MedioDivulgacion', width: 200, sortable: true },
+                    { name: 'InformacionPresentar', width: 200, sortable: true },
+                    { name: 'Herramientas', width: 200, sortable: true },
+                    { name: 'AquienInvitara', width: 200, sortable: true },
+                ],
+                viewrecords: true,
+                rowNum: 10,
+                rowList: [10, 20, 50, 100, 500],
+                pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                    var table = this;
+                    setTimeout(function () {
+                        updatePagerIcons(table);
+                        enableTooltips(table);
+                    }, 0);
+                }
+            });
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+        });
+
+    </script>
+}
+

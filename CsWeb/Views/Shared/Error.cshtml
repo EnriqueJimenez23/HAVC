@@ -1,0 +1,12 @@
+﻿@model HandleErrorInfo
+
+@{
+    Layout = "~/Views/shared/_LayoutError.cshtml";
+    ViewBag.Title = "Error";
+}
+
+<div class="alert alert-danger">
+    <h1 class="text-danger">Lo sentimos!!</h1>
+    <h2 class="text-danger">Se presento un error mientras procesábamos su solicitud.</h2>
+    <h3 class="text-info">@DateTime.Now</h3>
+</div>

@@ -1,0 +1,241 @@
+﻿@model CapaDominio.EntidadesNegocio.Veedor
+@using System.Globalization
+@using CapaServicios.Servicios
+@{
+
+    ViewBag.TituloFormulario = "Información del registro";
+    ViewBag.SubTituloFormulario = "";
+    Layout = "~/Views/Shared/_LayoutBasico.cshtml";
+}
+
+@using (Html.BeginForm("Registro", "Cuenta", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.VeedorId)
+    <link href="~/Content/assets/css/stylesheet.css" rel="stylesheet" />
+
+    <div class="page-container">
+        <div class="row">
+            <div class="col-sm-2  form-group">
+            </div>
+            <div class="col-sm-8 titulopag">
+                <p>
+                    Registrarse
+                </p>
+            </div>
+            <div class="col-sm-2 form-group">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2  form-group">
+            </div>
+            <div class="col-sm-8 form-group tnormal">
+                <p>
+                    <h4>
+                        El registro pedirá información específica de la subregión, municipio y correo electrónico, estos datos serán exclusivamente para uso de la identificación en el aplicativo. Una vez validado por el administrador, recibirá confirmación de la cuenta creada y contraseña.
+                    </h4>
+                </p>
+                <p>
+                    <h4>Este paso es necesario para ingresar a los pasos del control social en los cuales podrá diligenciar la información sobre sus actividades para la veeduría a los proyectos de paz</h4>
+                </p>
+            </div>
+            <div class="col-sm-2 form-group">
+            </div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="left">
+                    <div class="form-vertical">
+
+                        @*<div class="col-lg-12 form-group">*@
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>  Información registro </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        @Html.LabelFor(model => model.Subregion)
+                                        @Html.DropDownListFor(model => model.Subregion, (IEnumerable<SelectListItem>)ViewBag.ListaSubregion, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Subregion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.CodDepartamento)
+                                        @Html.DropDownListFor(model => model.CodDepartamento, (IEnumerable<SelectListItem>)ViewBag.ListaDepartamentos, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CodDepartamento, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.CodMunicipio)
+                                        @Html.DropDownListFor(model => model.CodMunicipio, (IEnumerable<SelectListItem>)ViewBag.ListaMunicipio, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CodMunicipio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.Nombres)
+                                        @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.Apellidos)
+                                        @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.TipoIdentificacion)
+                                        @Html.DropDownListFor(model => model.TipoIdentificacion, (IEnumerable<SelectListItem>)ViewBag.TiposIdentificacion, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TipoIdentificacion, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.Identificacion)
+                                        @Html.EditorFor(model => model.Identificacion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.Correo)
+                                        @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        @Html.LabelFor(model => model.Telefono)
+                                        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="row">
+
+                                        <div class="col-md-6 col-md-offset-3 form-group">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(model => model.Autorizo)@*<label class="tipo_azul">*@
+                                                Estoy de acuerdo con la política de tratamiento de datos personales.
+                                                @*</label>*@
+                                                @Html.ValidationMessageFor(model => model.Autorizo, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="tipo_azul">@ViewBag.Mensaje</span>
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <a href="@Url.Action("index","Paginas")" class="btn btn-success btn-sm">@(ArchivoDeRecursos.BotonRegresar)</a>
+                                        <button class="btn btn-success btn-sm" type="submit">Enviar registro</button>
+                                        <br /><br />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    @section Scripts {
+        <script type="text/javascript">
+
+           //  cargarDepartamentos();
+            cargarMunicipios();
+        function cargarDepartamentos() {
+                $('#CodDepartamento').empty();
+                var selectedId = $('#Subregion').val();
+                var selectedValue = '';
+                @{
+                    if (Model != null)
+                    {
+                      <text>
+                         selectedValue = '@Model.CodDepartamento'
+                      </text>
+                    }
+               }
+                $.ajax({
+                    url: '@Url.Action("ObtenerDepartamentos")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { subregion: $('#Subregion').val() },
+                    success: function (data) {
+                        if (data) {
+
+                            $.each(data, function (i, item) {
+                                if (item.Value === selectedValue) {
+                                    $('#CodDepartamento').append('<option value="' + item.Value + '" selected="selected">' + item.Text + '</option>');
+                                } else {
+                                    $('#CodDepartamento').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                                }
+                            });
+                        }
+                    },
+                    error: function (ex) {
+                        alert('Error recuperando la información.' + ex);
+                    }
+                });
+          }
+
+        function cargarMunicipios() {
+            $('#CodMunicipio').empty();
+             var selectedId = $('#CodDepartamento').val();
+                var selectedValue = '';
+                 @{
+                     if (Model != null)
+                     {
+                        <text>
+                            selectedValue = '@Model.CodMunicipio'
+                        </text>
+                     }
+                }
+                $.ajax({
+                    url: '@Url.Action("ObtenerMunicipios")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { codDepartamento: $('#CodDepartamento').val(), subregion: $('#Subregion').val() },
+                    success: function (data) {
+                        if (data) {
+                            $.each(data, function (i, item) {
+                                if (item.Value === selectedValue) {
+                                    $('#CodMunicipio').append('<option value="' + item.Value + '" selected="selected">' + item.Text + '</option>');
+                                } else {
+                                    $('#CodMunicipio').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                                }
+                            });
+                        }
+                    },
+
+                    error: function (ex) {
+                        alert('Error recuperando la información.' + ex);
+                    }
+                });
+          }
+        //$('#Subregion').change(function () {
+        //    cargarDepartamentos();
+        //});
+        $('#CodDepartamento').change(function () {
+                cargarMunicipios();
+            });
+
+        
+        $('input, select, textarea').on('keydown', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (e.keyCode === 13) {
+                e.preventDefault();
+               // $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+            }
+        });
+
+
+        </script>
+    }
+
+}

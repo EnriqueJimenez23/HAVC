@@ -1,0 +1,100 @@
+﻿    @*@using Recaptcha
+    @using CapaServicios.Servicios*@
+@model CsWeb.Models.RecuperarContrasenaViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutBasico.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META SECCION -->
+    <title>Control Social</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--FIN META SECTION -->
+  
+</head>
+<body>
+    <!-- page container -->
+
+    <div class="page-container">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <!-- Begin # DIV Form -->
+                    <div id="div-forms">
+                        <!-- End # Login Form -->
+                        <!-- Begin | Lost Password Form -->
+                        @using (Html.BeginForm("RecuperarContrasena", "Cuenta", FormMethod.Post, new { id = "lost-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="modal-body">
+                                <div id="div-lost-msg">
+                                    <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                    <span id="text-lost-msg">Ingresa tu correo electrónico</span>
+                                </div>
+                                @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo electrónico" } })
+                                @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
+                                @*<div style="margin-top: 16px;">
+                                    @Html.Raw(Html.GenerateCaptcha("recaptcha", "white"))
+                                    @Html.ValidationMessage("recaptcha")
+                                </div>*@
+                            </div>
+                            <div class="modal-footer">
+                                <div>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Enviar</button>
+                                </div>
+                                <div>
+                                    <a href="@Url.Action("IniciarSesion")" class="btn btn-link tipo_azul">Ingresar</a>
+                                </div>
+                            </div>
+                        }
+                        <!-- End | Lost Password Form -->
+                        <!-- Begin | Register Form -->
+                        <!-- End | Register Form -->
+
+                    </div>
+                    <!-- End # DIV Form -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End Popup -->
+        <!-- ./about -->
+        <!-- page footer wrap -->
+        <!-- social links -->
+        <!-- ./page footer -->
+
+
+    </div>
+
+    <!-- ./page container -->
+    <!-- page scripts -->
+    @*<script type="text/javascript" src="~/Portal/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Portal/js/plugins/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/Portal/js/plugins/mixitup/jquery.mixitup.js"></script>
+    <script type="text/javascript" src="~/Portal/js/plugins/appear/jquery.appear.js"></script>
+
+
+    <script type="text/javascript" src="~/Portal/js/actions_front-end.js"></script>*@
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+    </script>
+    <!-- pop/up -->
+    <!-- ./page scripts -->
+</body>
+
+</html>
+

@@ -1,0 +1,75 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.ContenidoSitio
+
+@{
+    ViewBag.Title = "Preguntas";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Preguntas frecuentes<br /><br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 titulopag">
+        Preguntas frecuentes<br />
+    </div>
+</div><br /><br />
+<div class="page-container">
+    <div class="banner1">
+        <img src="~/Content/img/riav/banner_preguntas.png" />
+    </div>
+    <br />
+    <br />
+</div>
+<div class="row">
+    <div class="col-sm-2 form-group">
+    </div>
+    <div class="opcion col-sm-8 form-group tnormal">
+        <p>
+            En esta sección se encuentra una lista de preguntas y respuestas dentro del ejercicio de control social y veeduría ciudadana. Este compendio de preguntas son tomasdas del <a href="~/Content/Doc/Preguntas.pdf" target="_blank">
+                Documento Orientador de la
+                Ley 850 de 2003
+            </a>
+        </p>
+    </div>
+    <br /> <br />
+    <div class="col-sm-2 form-group">
+    </div>
+</div>
+@for (int i = 0; i < ViewBag.Lista.Length; i = i + 1)
+{
+    <br />
+    <div class="row">
+        <div class="col-sm-2 form-group">
+        </div>
+        <div class="col-sm-6 ">
+            <div id="accordion1">
+                <div class="azulTitulo titulopreg">
+
+                    @ViewBag.Lista[i].Titulo
+
+                    <div class="icon_arrow">
+                        <a data-toggle="collapse" data-parent="#accordion" href="@string.Format("#m{0}",i)">
+                            <img src="~/Content/img/riav/btn_abrir.png" width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+                <div id=@string.Format("m{0}",i) class="panel-collapse collapse tnormal">
+                    <div class="panel-body banner1 text-justify">
+                        @ViewBag.Lista[i].Contenido
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 form-group">
+        </div>
+    </div>
+}
+
+
+
+
+
+
+

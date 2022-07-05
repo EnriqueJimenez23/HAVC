@@ -1,0 +1,385 @@
+﻿@model CapaDominio.EntidadesNegocio.Pasos
+@using System.Globalization
+@using CapaServicios.Servicios
+<div class="banner1">
+    <img src="~/Content/img/Riav/Paso3.jpg" />
+</div>
+@using (Html.BeginForm("Paso3", "Veedor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PasosId)
+    @Html.HiddenFor(model => model.NumPaso)
+    @Html.HiddenFor(model => model.NombreObjeto)
+
+    <div>
+        <ul class="steps">
+            <li data-step="1" class="active">
+                <a href="@Url.Action("Paso1",  new {id = @Model.PasosId})">
+                    <span class="step">1</span>
+                </a>
+            </li>
+            <li data-step="2" class="active">
+                <a href="@Url.Action("Paso2",  new {id = @Model.PasosId})">
+                    <span class="step">2</span>
+                </a>
+            </li>
+            <li data-step="3" class="active">
+                <a href="@Url.Action("Paso3",  new {id = @Model.PasosId})">
+                    <span class="step">3</span>
+                </a>
+            </li>
+            <li data-step="4">
+                <a href="@Url.Action("Paso4",  new {id = @Model.PasosId})">
+                    <span class="step">4</span>
+                </a>
+            </li>
+            <li data-step="5">
+                <a href="@Url.Action("Paso5",  new {id = @Model.PasosId})">
+                    <span class="step">5</span>
+                </a>
+            </li>
+            <li data-step="6">
+                <a href="@Url.Action("Paso6",  new {id = @Model.PasosId})">
+                    <span class="step">6</span>
+                </a>
+            </li>
+            <li data-step="7">
+                <a href="@Url.Action("Paso7",  new {id = @Model.PasosId})">
+                    <span class="step">7</span>
+                </a>
+            </li>
+            <li data-step="8">
+                <a href="@Url.Action("Paso8",  new {id = @Model.PasosId})">
+                    <span class="step">8</span>
+                </a>
+            </li>
+            <li data-step="9">
+                <a href="@Url.Action("Paso9",  new {id = @Model.PasosId})">
+                    <span class="step">9</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <br /><p>En este paso se debe definir un grupo que va a hacer seguimiento exhaustivo al objeto de vigilancia y que va a conformar la veeduría ciudadana</p>
+    <div class="form-vertical">
+
+        @*<div class="col-lg-12 form-group">*@
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.NombreObjeto</h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Acta)
+                        @Html.EditorFor(model => model.Acta, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Invitacion, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Ciudad)
+                        @Html.EditorFor(model => model.Ciudad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.ObjetoConformacion)
+                        @Html.EditorFor(model => model.ObjetoConformacion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ObjetoConformacion, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="Es la redacción del tema de interés de seguimiento que comprende: un problema, una población afectada, un lugar, un plan, programa o proyecto, una entidad pública responsable">
+                            @Html.LabelFor(model => model.ObjetoVigilancia)
+                        </a>
+                        @Html.EditorFor(model => model.ObjetoVigilancia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ObjetoVigilancia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Departamento)
+                        @Html.DropDownListFor(model => model.CodDepartamentoActa, (IEnumerable<SelectListItem>)ViewBag.Departamentos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CodDepartamento, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Municipio)
+                        @Html.DropDownListFor(model => model.CodMunicipioActa, (IEnumerable<SelectListItem>)ViewBag.ListaMunicipio, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CodMunicipio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.NivelTerritorial)
+                        @Html.DropDownListFor(model => model.NivelTerritorial, (IEnumerable<SelectListItem>)ViewBag.listaNivel, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NivelTerritorial, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="Fechas de inicio y de fin de la implementación, del plan, programa o proyecto">
+                            @Html.LabelFor(model => model.DuracionActa)
+                        </a>
+                        @Html.EditorFor(model => model.DuracionActa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DuracionActa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Presidir)
+                        @Html.EditorFor(model => model.Presidir, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Presidir, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Secretario)
+                        @Html.EditorFor(model => model.Secretario, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Secretario, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.Coordinador)
+                        @Html.EditorFor(model => model.Coordinador, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Coordinador, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        @Html.LabelFor(model => model.LugarFuncionamiento)
+                        @Html.EditorFor(model => model.LugarFuncionamiento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LugarFuncionamiento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <h4>
+                        Instalada la asamblea los participantes por unanimidad decidieron elegir los miembros de la veeduría. Las personas elegidas fueron las
+                        siguientes:
+                    </h4>
+                    <div class="row">
+                        <div class="col-sm-15 form-group">
+                            <a href="#" title="Personas que hacen parte del grupo de veeduría ciudadana">
+                                @Html.Label("Nombre:")
+                            </a>
+                            @Html.Editor("Nombre", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="col-sm-15 form-group">
+                            <a href="#" title="Número de documentos de quienes conforman la veeduría ciudadana">
+                                @Html.Label("Identificación:")
+                            </a>
+                            @Html.Editor("Identificacion", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="col-sm-15 form-group">
+                            <a href="#" title="es el territorio donde habitan los miembros de la veeduría ciudadana, pero además donde tiene incidencia la implementación del plan, programa o proyecto">
+                                @Html.Label("Lugar de residencia:")
+                            </a>
+                            @Html.Editor("Lugar", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="col-sm-15 form-group">
+                            @Html.Label("Dirección:")
+                            @Html.Editor("Direccion", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="col-sm-15 form-group">
+                            @Html.Label("Teléfono:")
+                            @Html.Editor("Telefono", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-2 form-group">
+                    <a href="#" id="btn" class="btn btn-success btn-sm">
+                        <span aria-hidden="true"></span>Agregar
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="divGrid" style="margin: 0px 0px 0">
+                <table id="grid-table"></table>
+                <div id="grid-pager"></div>
+            </div>
+            <br /> <br />
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <a href="@Url.Action("ProyectosVeedor")" class="btn btn-success btn-sm">@(ArchivoDeRecursos.BotonRegresar)</a>
+                    <button class="btn btn-success btn-sm" type="submit">@(ArchivoDeRecursos.BotonGuardar)</button>
+                    <a href="@Url.Action("Exp3",new { id = Model.PasosId, paso=3 })" class="btn btn-success btn-sm">Descargar reporte</a>
+                    <a href="@Url.Action("Paso3Pdf",new { id = Model.PasosId})" class="btn btn-success btn-sm">Descargar pdf</a>
+                    <a href="@Url.Action("Paso4", new { id = Model.PasosId })" class="btn btn-success btn-sm">Siguiente paso</a>
+                    <a href="~/Content/Doc/PASOS3.pdf" class="btn btn-primary btn-sm" target="_blank">Ayuda</a>
+                    <br /><br />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @*</div>*@
+  
+    @section Scripts {
+        <script type="text/javascript">
+            $("#btn").click(function (e) {
+                e.preventDefault();
+                agregarReg();
+            });
+            //$('input, select, textarea').on("keypress", function () {
+            //    $input = $(this);
+            //    setTimeout(function () {
+            //        $input.val($input.val().toUpperCase());
+            //    }, 50);
+            //});
+
+
+            $('input, select, textarea').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    // $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+                }
+            });
+
+
+        function agregarReg() {
+
+        $.ajax({
+            url: '@Url.Action("CrearPaso3")',
+            type: 'POST',
+            dataType: 'json',
+            data: { PasosId: $('#PasosId').val(), Nombres: $('#Nombre').val(), Identificacion: $('#Identificacion').val(), LugarResidencia: $('#Lugar').val(), Direccion: $('#Direccion').val(), Telefono: $('#Telefono').val(), },
+            success: function (data) {
+                $('#grid-table').trigger('reloadGrid'); $('#Nombres').val(''); $('#Identificacion').val(''); $('#Lugar').val(''); $('#Direccion').val(''); $('#Telefono').val('')
+
+            },
+        });
+            }
+            $('#CodDepartamentoActa').change(function () {
+                cargarMunicipios();
+            });
+             function cargarMunicipios() {
+            $('#CodMunicipioActa').empty();
+            var selectedId = $('#CodDepartamentoActa').val();
+
+                var selectedValue = '';
+                 @{
+                     if (Model != null)
+                     {
+                        <text>
+                            selectedValue = '@Model.CodMunicipioActa'
+                        </text>
+                     }
+                }
+                $.ajax({
+                    url: '@Url.Action("ListarMunicipiosD","Admin")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { codDepartamento: $('#CodDepartamentoActa').val() },
+                    success: function (data) {
+                        if (data) {
+                            $.each(data, function (i, item) {
+                                if (item.Value === selectedValue) {
+                                    $('#CodMunicipioActa').append('<option value="' + item.Value + '" selected="selected">' + item.Text + '</option>');
+                                } else {
+                                    $('#CodMunicipioActa').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                                }
+                            });
+                        }
+                    },
+
+                    error: function (ex) {
+                        alert('Error recuperando la información.' + ex);
+                    }
+                });
+          }
+        </script>
+    }
+
+}
+@section GridSection {
+    <script type="text/javascript">
+
+           jQuery(function ($) {
+                            var gridSelector = "#grid-table";
+                            var pagerSelector = "#grid-pager";
+                            //resize to fit page size
+                            //$(window).on('resize.jqGrid', function () {
+                            //    $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+                            //});
+
+                            // esta instruccion para encajar en el panel y comentar las lineas de arriba.
+                            $(window).resize(function () {
+                                $targetGrid.setGridWidth($(gridSelector).parent().width()); //perhaps add padding calculation here?
+                            });
+                            //resize on sidebar collapse/expand
+                            var parentColumn = $(gridSelector).closest('[class*="col-"]');
+                            $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                                if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                                    //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                                    setTimeout(function () {
+                                        $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                                    }, 0);
+                                }
+                            });
+                            //replace icons with FontAwesome icons like above
+                            function updatePagerIcons() {
+                                var replacement =
+                                {
+                                    'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                                    'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                                    'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                                    'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+                                };
+                                var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+                                $(temp).each(function () {
+                                    var icon = $(this);
+                                    var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                                    if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+                                });
+                            }
+
+                            function enableTooltips(table) {
+                                $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                                $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+                            }
+
+                            $(document).one('ajaxloadstart.page', function () {
+                                $(gridSelector).jqGrid('GridUnload');
+                                $('.ui-jqdialog').remove();
+                            });
+
+     function formatUrl(cellValue) {
+
+                //return "<a href='@Url.Action("Paso3")/" + cellValue+ "'><u>Ver</u></a>";
+            }
+
+            jQuery(gridSelector).jqGrid({
+                height: '100%',
+                 url: '@Url.Action("ObtenerPaso3", new { id = Model.PasosId })',
+                mtype: 'POST',
+                datatype: "json",
+                colNames: [ 'Nombre', 'Identificación', 'Lugar', 'Dirección','Teléfono'],
+                colModel: [
+                    { name: 'Nombres', width: 150, align: "center",sortable: true },
+                    { name: 'Identificacion', width: 200, sortable: true },
+                    { name: 'LugarResidencia', width: 200, sortable: true },
+                    { name: 'Direccion', width: 200, sortable: true },
+                    { name: 'Telefono', width: 200, sortable: true },
+                ],
+                viewrecords: true,
+                rowNum: 10,
+                //rowList: [10, 20, 50, 100, 500],
+                //pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                    var table = this;
+                    setTimeout(function () {
+                        updatePagerIcons(table);
+                        enableTooltips(table);
+                    }, 0);
+                }
+            });
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+        });
+
+    </script>
+}

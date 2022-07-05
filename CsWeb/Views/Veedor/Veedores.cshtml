@@ -1,0 +1,207 @@
+﻿@using CapaServicios.Servicios
+@{
+    ViewBag.Title = "Entidades";
+    ViewBag.TituloFormulario = "Entidades";
+    ViewBag.SubTituloFormulario = "";
+   
+}
+
+<div>
+
+    <a href="@Url.Action("Entidad")" id="btNuevo" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        Agregar
+    </a>
+  
+    <a href="#" id="btnHerramientasBusqueda" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+        @(ArchivoDeRecursos.BotonHerramientasBusqueda)
+    </a>
+    <a href="@Url.Action("ExportarExcel")" id="btnExportarExcel" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+        @(ArchivoDeRecursos.BotonExportarExcel)
+    </a>
+
+    <div id="divFiltros" style="display: none; margin: 20px 0 0 0">
+        @using (Html.BeginForm("Entidades", "Entidad", FormMethod.Get))
+        {
+            <div class="form-vertical">
+                <div class="row">
+                    <div class="col-sm-4 form-group">
+                        @Html.Label("Departamento:")
+                        @Html.DropDownList("FiltroDepartamento", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        @Html.Label("Municipio:")
+                        @Html.DropDownList("FiltroMunicipio", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonBuscar)</button>
+                            @if (Request.QueryString.HasKeys())
+                            {
+                                <a href="@Url.Action("Entidades")" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonMostrarTodos)</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>     
+    <div id="divGrid" style="margin: 10px 0 10px 0">
+        <table id="grid-table"></table>
+        <div id="grid-pager"></div>
+    </div>
+           
+ </div>
+        
+
+
+   
+
+                          
+               
+@section GridSection {
+
+<script type="text/javascript">
+
+jQuery(function ($) {
+    var gridSelector = "#grid-table";
+    var pagerSelector = "#grid-pager";
+
+     $('#btnHerramientasBusqueda').click(function () {
+                $('#divFiltros').slideToggle();
+                return false;
+            });
+
+            @if (Request.QueryString.HasKeys())
+        {
+            @: $('#divFiltros').show();
+                            }
+  
+
+    //resize to fit page size
+    $(window).on('resize.jqGrid', function () {
+        $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+    });
+
+    //resize on sidebar collapse/expand
+    var parentColumn = $(gridSelector).closest('[class*="col-"]');
+    $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+        if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+            //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+            setTimeout(function () {
+                $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+            }, 0);
+        }
+    });
+
+
+
+    //replace icons with FontAwesome icons like above
+    function updatePagerIcons() {
+        var replacement =
+        {
+            'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+            'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+            'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+            'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+        };
+        var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+        $(temp).each(function () {
+            var icon = $(this);
+            var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+            if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+        });
+    }
+
+    function enableTooltips(table) {
+        $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+        $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+    }
+
+    $(document).one('ajaxloadstart.page', function () {
+        $(gridSelector).jqGrid('GridUnload');
+        $('.ui-jqdialog').remove();
+    });
+
+    function formatUrl(cellValue) {
+
+        return "<a href='@Url.Action("Entidad")/" + cellValue + "'><u>Editar</u></a>";
+    }
+
+    jQuery(gridSelector).jqGrid({
+        height: '100%',
+        url: '@Url.Action("ObtenerEntidades")',
+        mtype: 'POST',
+        datatype: "json",
+        colNames: [' ', 'Veterinaria o Entidad', 'Correo electrónico', 'Descuento','Facturar' ,'Documento'],
+        colModel: [
+            { name: 'Id', width: 55, align: "center", sortable: true, formatter: formatUrl },
+            { name: 'NombreEntidad', width: 250, sortable: true },
+            { name: 'Correo', width: 200, sortable: true },
+            { name: 'Descuento', width: 100, sortable: true, align: "center" },
+            { name: 'Facturar', width: 250, sortable: true },
+            { name: 'NumDocumento', width: 250, sortable: true },
+        ],
+        viewrecords: true,
+        rowNum: 50,
+        rowList: [50, 100,200, 500],
+        pager: pagerSelector,
+        altRows: true,
+        loadComplete: function () {
+            var table = this;
+            setTimeout(function () {
+                updatePagerIcons(table);
+                enableTooltips(table);
+            }, 0);
+        }
+    });
+    $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+});
+
+</script>
+}
+
+                        @section scripts {
+
+                            <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('input, select, textarea').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    $('input, select, textarea')[$('input, select, textarea').index(this) + 1].focus();
+                }
+            });
+            function cargarMunicipios() {
+                var selectedId = $('#FiltroDepartamento').val();
+                var selectedValue = '@ViewBag.FiltroMunicipio';
+                var urltarget = '@Url.Action("ObtenerMunicipios")';
+                var divTarget = '#FiltroMunicipio';
+                var model = { DepartamentoCodigo: $('#FiltroDepartamento').val() };
+                if (selectedId != null && selectedId !== '') {
+                    cargarListas(urltarget, model, divTarget, selectedValue);
+                } else {
+                    $(divTarget).empty();
+                }
+            }
+
+            $('#FiltroDepartamento').change(function () {
+                cargarMunicipios();
+            });
+
+            cargarMunicipios();
+        });
+
+                            </script>
+                        }

@@ -1,0 +1,242 @@
+﻿<error errorId="09dd204d-29c8-42a7-89e6-d92785f41f8e" host="RUBYCC" type="System.InvalidOperationException" message="There is no ViewData item of type 'IEnumerable&lt;SelectListItem&gt;' that has the key 'Cumple'." source="System.Web.Mvc" detail="System.InvalidOperationException: There is no ViewData item of type 'IEnumerable&lt;SelectListItem&gt;' that has the key 'Cumple'.&#xD;&#xA;   en System.Web.Mvc.Html.SelectExtensions.GetSelectData(HtmlHelper htmlHelper, String name)&#xD;&#xA;   en System.Web.Mvc.Html.SelectExtensions.SelectInternal(HtmlHelper htmlHelper, ModelMetadata metadata, String optionLabel, String name, IEnumerable`1 selectList, Boolean allowMultiple, IDictionary`2 htmlAttributes)&#xD;&#xA;   en System.Web.Mvc.Html.SelectExtensions.DropDownList(HtmlHelper htmlHelper, String name, IEnumerable`1 selectList, Object htmlAttributes)&#xD;&#xA;   en ASP._Page_Views_Veedor_Paso5_cshtml.Execute() en C:\WK2021\CONTROLSOCIAL\CsWeb\Views\Veedor\Paso5.cshtml:línea 128&#xD;&#xA;   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.WebPages.StartPage.RunPage()&#xD;&#xA;   en System.Web.WebPages.StartPage.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)&#xD;&#xA;   en System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)&#xD;&#xA;   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="RUBY  CALDERON" time="2021-11-06T04:08:46.5457995Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_CONTENT_LENGTH:1799&#xD;&#xA;HTTP_CONTENT_TYPE:multipart/form-data; boundary=----WebKitFormBoundaryVNaUYdbat7Hmii5s&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-419,es;q=0.9&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=Pwsufol2FjdEJTc-BmNhMUfBmI-pyoRz257r5zddfpeXb-ao6qXLfvypTBc8ga96oBYi7-gWrvDdG0vl92qUGkWedpx6H3TJtKdbyyNuy_c1; ASP.NET_SessionId=4jljxqgyapi3lkqnxzv3r3qk; ControlSocial=1B987D52EF301FD57EDBF39E1CD3C1399488356B7B3EC8C60E0B359FA02A0FAB46BEE0239B961B8BF3B0266C12DA46F381DDAC09610F672908BA76666E13C769F4DB7EA6D9B9F9D28AE659F485BA89DA9747755CAE359DBA64FAFB1579C33AD7EF8D1FBF5B6C717B8AB7BBDA8FA36AA602145572192435DD939E135F40FCE9022F55572DFDC6593E0612DFBA4E783AB69B7BD20B769050E9A6824C7C5FE37937&#xD;&#xA;HTTP_HOST:localhost:49550&#xD;&#xA;HTTP_REFERER:http://localhost:49550/Veedor/Paso5/20&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36&#xD;&#xA;HTTP_SEC_CH_UA:&quot;Google Chrome&quot;;v=&quot;95&quot;, &quot;Chromium&quot;;v=&quot;95&quot;, &quot;;Not A Brand&quot;;v=&quot;99&quot;&#xD;&#xA;HTTP_SEC_CH_UA_MOBILE:?0&#xD;&#xA;HTTP_SEC_CH_UA_PLATFORM:&quot;Windows&quot;&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_ORIGIN:http://localhost:49550&#xD;&#xA;HTTP_SEC_FETCH_SITE:same-origin&#xD;&#xA;HTTP_SEC_FETCH_MODE:navigate&#xD;&#xA;HTTP_SEC_FETCH_USER:?1&#xD;&#xA;HTTP_SEC_FETCH_DEST:document&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Content-Length: 1799&#xD;&#xA;Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVNaUYdbat7Hmii5s&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-419,es;q=0.9&#xD;&#xA;Cookie: __RequestVerificationToken=Pwsufol2FjdEJTc-BmNhMUfBmI-pyoRz257r5zddfpeXb-ao6qXLfvypTBc8ga96oBYi7-gWrvDdG0vl92qUGkWedpx6H3TJtKdbyyNuy_c1; ASP.NET_SessionId=4jljxqgyapi3lkqnxzv3r3qk; ControlSocial=1B987D52EF301FD57EDBF39E1CD3C1399488356B7B3EC8C60E0B359FA02A0FAB46BEE0239B961B8BF3B0266C12DA46F381DDAC09610F672908BA76666E13C769F4DB7EA6D9B9F9D28AE659F485BA89DA9747755CAE359DBA64FAFB1579C33AD7EF8D1FBF5B6C717B8AB7BBDA8FA36AA602145572192435DD939E135F40FCE9022F55572DFDC6593E0612DFBA4E783AB69B7BD20B769050E9A6824C7C5FE37937&#xD;&#xA;Host: localhost:49550&#xD;&#xA;Referer: http://localhost:49550/Veedor/Paso5/20&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36&#xD;&#xA;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;95&quot;, &quot;Chromium&quot;;v=&quot;95&quot;, &quot;;Not A Brand&quot;;v=&quot;99&quot;&#xD;&#xA;sec-ch-ua-mobile: ?0&#xD;&#xA;sec-ch-ua-platform: &quot;Windows&quot;&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;Origin: http://localhost:49550&#xD;&#xA;Sec-Fetch-Site: same-origin&#xD;&#xA;Sec-Fetch-Mode: navigate&#xD;&#xA;Sec-Fetch-User: ?1&#xD;&#xA;Sec-Fetch-Dest: document&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/4/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\WK2021\CONTROLSOCIAL\CsWeb\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="RUBY  CALDERON" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="RUBY  CALDERON" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="RUBY  CALDERON" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="1799" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundaryVNaUYdbat7Hmii5s" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="4" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/4" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Veedor/Paso5/20" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\WK2021\CONTROLSOCIAL\CsWeb\Veedor\Paso5\20" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="52673" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Veedor/Paso5/20" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="49550" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Veedor/Paso5/20" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="1799" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundaryVNaUYdbat7Hmii5s" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-419,es;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=Pwsufol2FjdEJTc-BmNhMUfBmI-pyoRz257r5zddfpeXb-ao6qXLfvypTBc8ga96oBYi7-gWrvDdG0vl92qUGkWedpx6H3TJtKdbyyNuy_c1; ASP.NET_SessionId=4jljxqgyapi3lkqnxzv3r3qk; ControlSocial=1B987D52EF301FD57EDBF39E1CD3C1399488356B7B3EC8C60E0B359FA02A0FAB46BEE0239B961B8BF3B0266C12DA46F381DDAC09610F672908BA76666E13C769F4DB7EA6D9B9F9D28AE659F485BA89DA9747755CAE359DBA64FAFB1579C33AD7EF8D1FBF5B6C717B8AB7BBDA8FA36AA602145572192435DD939E135F40FCE9022F55572DFDC6593E0612DFBA4E783AB69B7BD20B769050E9A6824C7C5FE37937" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:49550" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:49550/Veedor/Paso5/20" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" />
+    </item>
+    <item name="HTTP_SEC_CH_UA">
+      <value string="&quot;Google Chrome&quot;;v=&quot;95&quot;, &quot;Chromium&quot;;v=&quot;95&quot;, &quot;;Not A Brand&quot;;v=&quot;99&quot;" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_MOBILE">
+      <value string="?0" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_PLATFORM">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:49550" />
+    </item>
+    <item name="HTTP_SEC_FETCH_SITE">
+      <value string="same-origin" />
+    </item>
+    <item name="HTTP_SEC_FETCH_MODE">
+      <value string="navigate" />
+    </item>
+    <item name="HTTP_SEC_FETCH_USER">
+      <value string="?1" />
+    </item>
+    <item name="HTTP_SEC_FETCH_DEST">
+      <value string="document" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="jRtBj_p_e-bB1mQ4fo7l47VTjenu6076Qx2EeBhm6EDzVpCVWlHugFsaLeyfWJiPLEevgId8VGcB15v3CDEbiUZHtmbBCkbdJ5Zwp-j1J_B_CAoEBtNGPoSRMwFR62RH0" />
+    </item>
+    <item name="PasosId">
+      <value string="20" />
+    </item>
+    <item name="NumPaso">
+      <value string="5" />
+    </item>
+    <item name="Impactos">
+      <value string="Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet&#xD;&#xA;" />
+    </item>
+    <item name="Resultados">
+      <value string="Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet&#xD;&#xA;" />
+    </item>
+    <item name="Productos">
+      <value string="Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet&#xD;&#xA;" />
+    </item>
+    <item name="Actividades">
+      <value string="Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet&#xD;&#xA;" />
+    </item>
+    <item name="Insumos">
+      <value string="Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet&#xD;&#xA;" />
+    </item>
+    <item name="Objetivo">
+      <value string="" />
+    </item>
+    <item name="Evaluacion">
+      <value string="" />
+    </item>
+    <item name="Cumple">
+      <value string="Si" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="Pwsufol2FjdEJTc-BmNhMUfBmI-pyoRz257r5zddfpeXb-ao6qXLfvypTBc8ga96oBYi7-gWrvDdG0vl92qUGkWedpx6H3TJtKdbyyNuy_c1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="4jljxqgyapi3lkqnxzv3r3qk" />
+    </item>
+    <item name="ControlSocial">
+      <value string="1B987D52EF301FD57EDBF39E1CD3C1399488356B7B3EC8C60E0B359FA02A0FAB46BEE0239B961B8BF3B0266C12DA46F381DDAC09610F672908BA76666E13C769F4DB7EA6D9B9F9D28AE659F485BA89DA9747755CAE359DBA64FAFB1579C33AD7EF8D1FBF5B6C717B8AB7BBDA8FA36AA602145572192435DD939E135F40FCE9022F55572DFDC6593E0612DFBA4E783AB69B7BD20B769050E9A6824C7C5FE37937" />
+    </item>
+  </cookies>
+</error>

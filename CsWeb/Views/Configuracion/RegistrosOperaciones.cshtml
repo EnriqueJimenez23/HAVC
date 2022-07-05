@@ -1,0 +1,171 @@
+﻿@using CapaServicios.Servicios
+@{
+    ViewBag.Title = "Registros de operaciones";
+    ViewBag.TituloFormulario = "Registros de operaciones";
+    ViewBag.SubTituloFormulario = "";
+
+}
+
+<div>
+    <a href="#" id="btnHerramientasBusqueda" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+        @(ArchivoDeRecursos.BotonHerramientasBusqueda)
+    </a>
+
+    <div id="divFiltros" style="display: none; margin: 20px 0 0 0">
+        @using (Html.BeginForm("RegistrosOperaciones", "Configuracion", FormMethod.Get))
+        {
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Categoría:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.DropDownList("FiltroCategoria", (IEnumerable<SelectListItem>) ViewBag.Categorias, htmlAttributes: new {@class = "form-control"})
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Registro Id:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroRegistroId", null, htmlAttributes: new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Nombre usuario:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroNombreUsuario", null, htmlAttributes: new {@class = "form-control"})
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Descripción:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroDescripcion", null, htmlAttributes: new {@class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Fecha inicial:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroFechaInicial", null, htmlAttributes: new {@class = "form-control", type = "date"})
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        @Html.Label("Fecha final:", htmlAttributes: new {@class = "col-sm-4 control-label no-padding-right"})
+                        <div class="col-sm-8">
+                            @Html.TextBox("FiltroFechaFinal", null, htmlAttributes: new {@class = "form-control", type = "date"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonBuscar)</button>
+                            @if (Request.QueryString.HasKeys())
+                            {
+                                <a href="@Url.Action("RegistrosOperaciones")" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonMostrarTodos)</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div id="divGrid" style="margin: 10px 0 10px 0">
+        <table id="grid-table"></table>
+        <div id="grid-pager"></div>
+    </div>
+</div>
+
+@section GridSection {
+
+    <script type="text/javascript">
+
+        jQuery(function ($) {
+            var gridSelector = "#grid-table";
+            var pagerSelector = "#grid-pager";
+
+            $('#btnHerramientasBusqueda').click(function () {
+                $('#divFiltros').slideToggle();
+                return false;
+            });
+
+            @if (Request.QueryString.HasKeys())
+        {
+            @: $('#divFiltros').show();
+                                        }
+            $(window).on('resize.jqGrid', function () {
+                $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+            });
+
+            var parentColumn = $(gridSelector).closest('[class*="col-"]');
+            $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                    setTimeout(function () {
+                        $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                    }, 0);
+                }
+            });
+            function updatePagerIcons() {
+                var replacement =
+                {
+                    'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                    'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                    'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                    'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+                };
+                var temp = '.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon';
+                $(temp).each(function () {
+                    var icon = $(this);
+                    var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                    if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+                });
+            }
+
+            function enableTooltips(table) {
+                $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+            }
+
+            $(document).one('ajaxloadstart.page', function () {
+                $(gridSelector).jqGrid('GridUnload');
+                $('.ui-jqdialog').remove();
+            });
+
+            jQuery(gridSelector).jqGrid({
+                height: '100%',
+                url: '@Url.Action("ObtenerRegistrosOperaciones")',
+                mtype: 'POST',
+                datatype: "json",
+                colNames: ['Registro operación', 'Descripción'],
+                colModel: [
+                    { name: 'Resumen', width: 80, sortable: false },
+                    { name: 'DescripcionOperacion', sortable: false }
+                ],
+                viewrecords: true,
+                rowNum: 10,
+                rowList: [10, 20, 50, 100, 500],
+                pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                    var table = this;
+                    setTimeout(function () {
+                        updatePagerIcons(table);
+                        enableTooltips(table);
+                    }, 0);
+                }
+            });
+            $(window).triggerHandler('resize.jqGrid');
+        });
+
+    </script>
+}

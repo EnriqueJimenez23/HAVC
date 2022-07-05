@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BotonBuscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="BotonCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="BotonCargar" xml:space="preserve">
+    <value>Cargar</value>
+  </data>
+  <data name="BotonCerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="BotonEliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="BotonEnviar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="BotonExportarExcel" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="BotonFinalizar" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
+  <data name="BotonGuardar" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="BotonGuardarEnviar" xml:space="preserve">
+    <value>Guardar y enviar</value>
+  </data>
+  <data name="BotonHerramientasBusqueda" xml:space="preserve">
+    <value>Herramientas de búsqueda</value>
+  </data>
+  <data name="BotonIniciarSesion" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="BotonMostrarTodos" xml:space="preserve">
+    <value>Mostrar todos</value>
+  </data>
+  <data name="BotonNuevoEscenario" xml:space="preserve">
+    <value>Nuevo Escenario</value>
+  </data>
+  <data name="BotonNuevoRegistro" xml:space="preserve">
+    <value>Nuevo registro</value>
+  </data>
+  <data name="BotonRegresar" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="BotonRegresarALaLista" xml:space="preserve">
+    <value>Volver a la lista</value>
+  </data>
+  <data name="BotonRequisitos" xml:space="preserve">
+    <value>Requisitos</value>
+  </data>
+  <data name="BotonSeleccionar" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="BotonSiguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="BotonTeatro" xml:space="preserve">
+    <value>Registrar Escenario Cultural</value>
+  </data>
+  <data name="Mensaje_AutorizacionRegistro" xml:space="preserve">
+    <value>Para registrarse es necesario haya leído y este de acuerdo con los términos y condiciones.</value>
+  </data>
+  <data name="Mensaje_CambiosGuardadosExitosamente" xml:space="preserve">
+    <value>Los cambios fueron guardados exitosamente.</value>
+  </data>
+  <data name="Mensaje_CertificadoContribucionEnRevision" xml:space="preserve">
+    <value>La solicitud de certificado se encuentra en Revisión.</value>
+  </data>
+  <data name="Mensaje_CertificadoTributarioPendiente" xml:space="preserve">
+    <value>El certificado tributario no puede ser generado. Productor no lo ha solicitado o está en revisión.</value>
+  </data>
+  <data name="Mensaje_ConceptoGuardadoExitosamente" xml:space="preserve">
+    <value>El Concepto fue guardado exitosamente</value>
+  </data>
+  <data name="Mensaje_DescuentoGuardado" xml:space="preserve">
+    <value>El descuento ha sido guardado exitosamnete</value>
+  </data>
+  <data name="Mensaje_ErrorAutenticacion" xml:space="preserve">
+    <value>El nombre de usuario o la contraseña introducidos no son correctos.</value>
+  </data>
+  <data name="Mensaje_ErrorCorreoNoRegistrado" xml:space="preserve">
+    <value>El correo electrónico {0} no se encuentra registrado.</value>
+  </data>
+  <data name="Mensaje_ErrorEnviandoCorreo" xml:space="preserve">
+    <value>Se presentó error enviando correo electrónico</value>
+  </data>
+  <data name="Mensaje_ErrorPerfilInactivo" xml:space="preserve">
+    <value>Lo sentimos, el perfil de usuario al que usted pertenece se encuentra inactivo.</value>
+  </data>
+  <data name="Mensaje_ErrorUsuarioInactivo" xml:space="preserve">
+    <value>Lo sentimos, su cuenta de usuario se encuentra inactiva.</value>
+  </data>
+  <data name="Mensaje_EventoNoSeEncuentraLista" xml:space="preserve">
+    <value>El evento no se encuentra en la lista</value>
+  </data>
+  <data name="Mensaje_OperadorNoSeEncuentraLista" xml:space="preserve">
+    <value>--- El operador no se encuentra en la lista ---</value>
+  </data>
+  <data name="Mensaje_OtroEscenario" xml:space="preserve">
+    <value>Otro escenario</value>
+  </data>
+  <data name="Mensaje_ProductorNoSeEncuentraLista" xml:space="preserve">
+    <value>--- El productor no se encuentra en la lista ---</value>
+  </data>
+  <data name="Mensaje_ProductorSinCodigo" xml:space="preserve">
+    <value>Productor en revisión o en proceso de aprobación. No puede obtener certificado ni registrar eventos.</value>
+  </data>
+  <data name="Mensaje_ProductorYaExiste" xml:space="preserve">
+    <value>Ya existe un productor registrado con ese número de identificación.</value>
+  </data>
+  <data name="Mensaje_RegistroEliminadoExitosamente" xml:space="preserve">
+    <value>El registro fue eliminado exitosamente.</value>
+  </data>
+  <data name="Mensaje_RequisitosIncompletos" xml:space="preserve">
+    <value>Verifique que el productor tenga los requisitos completos. No puede ser generado código de productor.</value>
+  </data>
+  <data name="Mensaje_SeleccioneUnaOpcion" xml:space="preserve">
+    <value>Seleccione...</value>
+  </data>
+  <data name="Mensaje_SinRevisionCertificado" xml:space="preserve">
+    <value>Falta ingresar el tipo de certificado.</value>
+  </data>
+  <data name="Mensaje_SolicitudCambioEstadoNotificacionExitosamente" xml:space="preserve">
+    <value>La Solicitud de autorización cambio de estado y fue notificado exitosamente</value>
+  </data>
+  <data name="Mensaje_SolicitudEnviada" xml:space="preserve">
+    <value>Se presenta una solicitud asociada al Solicitante</value>
+  </data>
+  <data name="Mensaje_SolicitudEnviadaExitosamente" xml:space="preserve">
+    <value>La Solicitud fue enviada exitosamente</value>
+  </data>
+  <data name="Mensaje_SolicitudGuardadaExitosamente" xml:space="preserve">
+    <value>La Solicitud fue guardada exitosamente</value>
+  </data>
+  <data name="Mensaje_SolicitudModificadaExitosamente" xml:space="preserve">
+    <value>La Solicitud fue Modificada exitosamente; pero el resultado no fué asignado por falta de conceptos</value>
+  </data>
+  <data name="Valor_EventoEncontrado" xml:space="preserve">
+    <value>EventoEncontrado</value>
+  </data>
+  <data name="Valor_EventoEncontradoOtroMunicipio" xml:space="preserve">
+    <value>EventoEncontradoOtroMunicipio</value>
+  </data>
+  <data name="Valor_EventoNoEncontrado" xml:space="preserve">
+    <value>EventoNoEncontrado</value>
+  </data>
+  <data name="Valor_EventoNoRegistrado" xml:space="preserve">
+    <value>Evento no registrado</value>
+  </data>
+  <data name="Valor_OperadorNoRegistrado" xml:space="preserve">
+    <value>Operador no registrado</value>
+  </data>
+  <data name="Valor_ProductorNoRegistrado" xml:space="preserve">
+    <value>Productor no registrado</value>
+  </data>
+  <data name="Valor_TiposDeDatosExcluir" xml:space="preserve">
+    <value>HttpPostedFileBase, ObjectState, ICollection`1, List`1, Byte[]</value>
+  </data>
+</root>

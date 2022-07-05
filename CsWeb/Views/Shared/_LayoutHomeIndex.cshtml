@@ -1,0 +1,229 @@
+﻿@*@using CapaServicios.Servicios
+@using CsWeb.Infrastructure.Notification*@
+<!DOCTYPE html>
+<html>
+
+<head>
+    @*<script src="~/Scripts/jquery.rwdImageMaps.js"></script>*@
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html;">
+    <title>.: Herramienta de acompañamiento a veeduria ciudadana :.</title>
+    <meta name="description" content="Control Social" />
+
+    @Styles.Render("~/Content/assets/cssbootstrap")
+    @Styles.Render("~/Content/csspulep")
+    @Scripts.Render("~/bundles/ace")
+    <link href="~/Content/assets/css/stylesheet.css" rel="stylesheet" />
+    @*@*<link rel="stylesheet" type="text/css" href="../../Content/assets/css/styles.css" media="screen" />*@
+    <style>
+        .opcion img {
+            max-width: 75%;
+            height: auto;
+        }
+
+        .opcionp img {
+            max-width: 60%;
+            height: auto;
+        }
+
+        
+        li  {
+           padding-left: 40px;
+        }
+
+        .tooltip.fade.bottom.in {
+            z-index:90;
+        }
+  
+    </style>
+</head>
+<body class="no-skin">
+    <!-- #section:basics/navbar.layout -->
+    <!-- /section:basics/navbar.layout -->
+    <div class="banner1">
+        <div class="barra-navegacion-redes">
+            <div class="nav-bar-redes">
+                <div class="govco text-left" style="float:left;"></div>
+                <div class="text-right align-middle">
+                    @*<a class="nav-item nav-link redes-fp" title="Función Pública en twitter" href="https://twitter.com/dafp_colombia" target="_blank"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_twitter-icon.png" alt="twitter"></a>
+                        <a class="nav-item nav-link redes-fp" title="Función Pública en facebook" href="https://www.facebook.com/FuncionPublica" target="_blank"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_facebook-icon.png" alt="facebook"></a>
+                        <a class="nav-item nav-link redes-fp" title="Función Pública en Instagram" href="https://www.instagram.com/funcionpublicacolombia/" target="_blank"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_instagram-icon.png" alt="instagram"></a>
+                        <a class="nav-item nav-link redes-fp" title="Función Pública en Youtube" href="https://www.youtube.com/user/webmasterdafp" target="_blank"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_youtube-icon.png" alt="youtube"></a>
+                        <a class="nav-item nav-link redes-fp" title="Función Pública en linkedin" href="https://www.linkedin.com/company/departamento-administrativo-de-la-funci%C3%B3n-p%C3%BAblica" target="_blank"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_linkedin-icon.png" alt="linkedin"></a>
+                        <span style="color: white;">|</span>
+                        <a class="nav-item nav-link redes-fp" title="Ir a EVA" href="/web/eva"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_chat-icon.png" alt="Ir a EVA"></a>
+                        <a class="nav-item nav-link redes-fp" title="Correo Contacto" href="mailto:eva@funcionpublica.gov.co"><img src="https://funcionpublica.gov.co/o/Fpublica-no-top-banner-theme/images/redes/Web FP_mail-icon.png" alt="Correo Contacto"></a>*@
+                </div>
+            </div>
+        </div>
+        @*<img src="~/Content/img/riav/lineaAzul.png" />*@
+    </div>
+    <div class="main-container" id="main-container">
+        <header>
+            @*<div class="container">*@
+
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <a href="~/Paginas/index" data-toggle="tooltip" data-placement="bottom" title="Inicio">
+                        <img src="~/Content/img/Logo riav.png" />
+                    </a>
+                </div>
+                <div class="col-md-7 text-right">
+                    <div id="google_translate_element" style=" display: inline-block;"></div>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, screen.width >= 768 ? 'google_translate_element' : 'google_translate_element_mobil');
+                        }
+                    </script>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                    @*<a class="btn btn-corner  btn-sm" style="border-width:1px; border-color:var(--primary); border-style:solid; " href="/rss" aria-label="Rss" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i><span class="sr-only">RSS</span></a>*@
+
+                </div>
+            </div>
+            <br />
+            <br />
+
+
+            <div class="fondoGris ">
+
+                <div class="row ">
+                    <div class="col-md-offset-2">
+                        <ul class="nav navbar-nav tnormal">
+
+                            <li><a href="~/Paginas/index" data-toggle="tooltip" data-placement="bottom" title="Inicio"> Inicio</a></li>
+                            <li>
+                                <a href="~/Paginas/herramienta" data-toggle="tooltip" data-placement="bottom" title="¿Cómo usar la herramienta?">
+                                    ¿Cómo usar la   <br />
+                                    herramienta?
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Paginas/preguntas" data-toggle="tooltip" data-placement="bottom" title="Preguntas frecuentes">
+                                    Preguntas   <br />frecuentes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.contraloria.gov.co/web/red-apoyo-veedurias-ciudadanas/contactos" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Contáctese con la red">
+                                    Contáctese   <br />con la red
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/Cuenta/registro" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Registrarse"><b><u>Registrarse</u></b></a>
+                            </li>
+                            <li>
+                                <a href="~/Cuenta/IniciarSesion" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Ingresar para iniciar sesión"><b><u>Ingresar</u></b></a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+
+                        @RenderBody()
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+    </div><!-- /.main-container -->
+    @*<div class="text-center">
+                <a href="~/Paginas/index"><img src="~/Content/img/riav/recurso 6.png" style="max-width: 15%; " /></a>
+        </div>*@
+    <br />  <br />
+
+    <div class="banner1">
+        <img src="~/Content/img/riav/recurso 7.png" />
+    </div>
+    <div id="accesibilidad-menu" class="accesibilidad-menu">
+        <ul class="accesibilidad-items">
+            <li>
+                <a id="high_contrast" href="javascript: void(0)" class="icon-contrast" title="Cambiar niveles de contraste">
+                    <img src="~/Content/channels-616_icon_contrast.svg" alt="Botón contraste" class="img-fluid">
+                    <span> Contraste </span>
+                </a>
+            </li>
+            <li>
+                <a id="a_less" href="javascript: void(0)" class="icon-a-less" title="Reducir el tamaño del texto">
+                    <img src="~/Content/channels-616_icon_less_size.svg" alt="Botón Reducir el tamaño del texto" class="img-fluid">
+                    <span> Reducir letra </span>
+                </a>
+            </li>
+            <li>
+                <a id="a_more" href="javascript: void(0)" class="icon-a-more" title="Aumentar el tamaño del texto">
+                    <img src="~/Content/channels-616_icon_more_size.svg" alt="Botón Aumentar tamaño del texto" class="img-fluid">
+                    <span> Aumentar letra </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- basic scripts -->
+
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='~/Content/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+        $(document).ready(function (e) {
+            $('img[usemap]').rwdImageMaps();
+        });
+
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/scriptsplantilla")
+    @Scripts.Render("~/bundles/scriptspulep")
+    @RenderSection("GridSection", required: false)
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        /*Aumentar tamaño de la fuente*/
+        $('#a_more').click(function () {
+            curSize = parseInt($('html').css('font-size')) + 2;
+            if (curSize <= 24)
+                $('html').css('font-size', curSize);
+        });
+
+        /*Disminuir tamaño de la fuente*/
+        $('#a_less').click(function () {
+            curSize = parseInt($('html').css('font-size')) - 2;
+            if (curSize >= 14)
+                $('html').css('font-size', curSize);
+        });
+
+        /*Reiniciar tamaño de la fuente*/
+        $('#a_normal').click(function () {
+            $('html').css('font-size', 'initial');
+        });
+
+        /*Alto contraste*/
+
+        $('#high_contrast').click(function () {
+
+            if ($('html').hasClass('altoContraste')) {
+                $('html').removeClass('altoContraste');
+                $(".navbar-default").removeClass("navbar-inverse");
+            }
+            else {
+                $('html').addClass('altoContraste');
+                $(".navbar-default").addClass("navbar-inverse");
+            }
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.Proyecto
+
+
+@{
+    ViewBag.Title = "Herramienta Control Social";
+    Layout = "~/Views/Shared/_LayoutHomeIndex.cshtml";
+}
+<!-- page content -->
+@*<div class="page-content-wrap bg-light">*@
+<head>
+
+</head>
+<body>
+    <div class="page-container">
+        <div class="banner1">
+            <a href="~/Paginas/herramienta">
+                <img src="~/Content/img/riav/banner_home.png" />
+            </a>
+        </div>
+        <br />
+        <br />
+        <div class="text-center tnormal">
+                Si quieres hacer veeduría ciudadana sigue la siguiente ruta
+        </div>
+        <br />
+        <br />
+        <div class="page-content-holder">
+            <div class="row">
+                <div class="opcion col-sm-2 form-group">
+                </div>
+                <div class="opcion col-sm-2 form-group">
+                    <a href="~/Paginas/Pasos" data-toggle="tooltip" data-placement="bottom" title="Pasos para el control social"><img src="~/Content/img/riav/btn_pasos social.png"></a>
+                </div>
+
+                <div class="opcion col-sm-2 form-group">
+                    <a href="~/Paginas/Localizacion" data-toggle="tooltip" data-placement="bottom" title="Localización de proyecto a vigilar"><img src="~/Content/img/riav/btn_localizacion.png"></a>
+                </div>
+
+                <div class="opcion col-sm-2 form-group">
+                    <a href="~/Paginas/formacion" data-toggle="tooltip" data-placement="bottom" title="Formación para el control social"><img src="~/Content/img/riav/btn_formacion.png"></a>
+                </div>
+
+                <div class="opcion col-sm-2 form-group">
+                    <a href="~/Paginas/Documentos" data-toggle="tooltip" data-placement="bottom" title="Docuemntos de consultas"><img src="~/Content/img/riav/btn_documentos.png"></a>
+                </div>
+                <div class="col-sm-1 form-group">
+
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="azul">
+                <br />
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                    </div>
+
+                    <div class="titulocentro col-sm-6 form-group">
+                        Buscar proyectos
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                    </div>
+
+                    <div class="centrado col-sm-6 form-group">
+                        @Html.Editor("Buscar", new { htmlAttributes = new { @class = "form-control", @placeholder = "Escribe aquí lo que buscas" } })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                    </div>
+
+                    <div class="centrado col-sm-6 form-group">
+                        <a href="#" id="btnPro" class="btn btn-primary btn-lg" title="Puedes escribir un tema de interés, o parte del nombre de un proyecto y la herramienta te mostrará los proyectos que cumplen con tu criterio de búsqueda.">
+                            <span aria-hidden="true"></span>Buscar
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                    </div>
+                </div><br /><br />
+            </div>
+            <br />
+            <div class="text-center tnormal">
+                Otra forma de ingresar a la ficha técnica, es por medio del buscador de proyectos,<br />
+                por medio de palabras claves facilita la búsqueda según tu interés
+
+            </div>
+            <br />
+            <br /> <br />
+            <br />
+            <div class="row">
+
+                <div class="col-sm-4 form-group">
+                </div>
+
+                <div class="col-sm-4 form-group titulocentro ">
+                    Páginas de interés
+                </div>
+
+                <div class="col-sm-4 form-group">
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-sm-15 form-group">
+                </div>
+                <div class="opcion col-sm-15 form-group">
+                    <a href="~/Paginas/paginasInteres" data-toggle="tooltip" data-placement="bottom" title="Entidades de la red de apoyo a Veedurías"><img src="~/Content/img/riav/btn_entidades.png"></a>
+                </div>
+
+                <div class="opcion col-sm-15 form-group">
+                    <a href="~/Paginas/Sistemas" data-toggle="tooltip" data-placement="bottom" title="Sistemas de información para el control social"><img src="~/Content/img/riav/recurso 14.png"></a>
+                </div>
+
+                <div class="opcion col-sm-15 form-group">
+                    <a href="~/Paginas/Cifras" data-toggle="tooltip" data-placement="bottom" title="Cifras y datos"><img src="~/Content/img/riav/cifras.png"></a>
+                </div>
+
+                <div class="col-sm-15 form-group">
+                </div>
+
+            </div>
+            <div class="banner1">
+                <div class="col-sm-12 form-group">
+                    <img src="~/Content/img/riav/lineaAmarilla.png" />
+                </div>
+            </div>
+
+            <div class="banner-1 text-center">
+                <div class="col-sm-12 form-group">
+                    <br />
+                    <br />
+                    <br />
+                    <a href="https://www.contraloria.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Contraloría"><img src="~/Content/img/contraloria.png" /></a>
+                    <a href="https://www.procuraduria.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Procuraduría General de la Nación"><img src="~/Content/img/procuraduria.png" /></a>
+                    <a href="https://www.mininterior.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Ministerio del Interior"><img src="~/Content/img/mininterior.png" /></a>
+                    <a href="https://www.defensoria.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Defensoría del Pueblo"><img src="~/Content/img/def_pueblo.png" /></a>
+                    <br />
+                    <a href="https://www.funcionpublica.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Función Pública"><img src="~/Content/img/funcionpublica.png" /></a>
+                    <a href="https://www.esap.edu.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Escuela Superior de Administración Pública"><img src="~/Content/img/esap.png" /></a>
+                    <a href="https://www.dnp.gov.co" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Departamento Nacional de Planeación"><img src="~/Content/img/dnp.png" /></a>
+                    <br />
+                    <br />
+                    <br />
+                    @*<img src="~/Content/img/riav/entidades.png" />*@
+                </div>
+            </div>
+        </div>
+        <!-- ./page content holder -->
+    </div>
+    @*</div>*@
+</body>
+@section Scripts {
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnPro").click(function (e) {
+                window.location.href = '/veedurias/Paginas/Proyectosw?Palabra='+$("#Buscar").val();
+              return false;
+           });
+            });
+            @* function buscarP() {
+                $.ajax({
+                    url: '@Url.Action("BuscarProyecto")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        Palabra: $('#Buscar').val(),
+                    },
+                    //success: function (data) {
+
+                    //},
+                });
+            }*@
+</script>
+}

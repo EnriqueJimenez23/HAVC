@@ -1,0 +1,157 @@
+﻿@model CapaDominio.EntidadesNegocio.Pasos
+@using System.Globalization
+@using CapaServicios.Servicios
+
+<div class="banner1">
+    <img src="~/Content/img/Riav/Paso2.jpg" />
+</div>
+@using (Html.BeginForm("Paso2", "Veedor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PasosId)
+    @Html.HiddenFor(model => model.NumPaso)
+    @Html.HiddenFor(model => model.NombreObjeto)
+    <div>
+        <ul class="steps">
+            <li data-step="1" class="active">
+                <a href="@Url.Action("Paso1",  new {id = @Model.PasosId})">
+                    <span class="step">1</span>
+                </a>
+            </li>
+            <li data-step="2" class="active">
+                <a href="@Url.Action("Paso2",  new {id = @Model.PasosId})">
+                    <span class="step">2</span>
+                </a>
+            </li>
+            <li data-step="3">
+                <a href="@Url.Action("Paso3",  new {id = @Model.PasosId})">
+                    <span class="step">3</span>
+                </a>
+            </li>
+            <li data-step="4">
+                <a href="@Url.Action("Paso4",  new {id = @Model.PasosId})">
+                    <span class="step">4</span>
+                </a>
+            </li>
+            <li data-step="5">
+                <a href="@Url.Action("Paso5",  new {id = @Model.PasosId})">
+                    <span class="step">5</span>
+                </a>
+            </li>
+            <li data-step="6">
+                <a href="@Url.Action("Paso6",  new {id = @Model.PasosId})">
+                    <span class="step">6</span>
+                </a>
+            </li>
+            <li data-step="7">
+                <a href="@Url.Action("Paso7",  new {id = @Model.PasosId})">
+                    <span class="step">7</span>
+                </a>
+            </li>
+            <li data-step="8">
+                <a href="@Url.Action("Paso8",  new {id = @Model.PasosId})">
+                    <span class="step">8</span>
+                </a>
+            </li>
+            <li data-step="9">
+                <a href="@Url.Action("Paso9",  new {id = @Model.PasosId})">
+                    <span class="step">9</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <br /><p>En este paso el ciudadano debe identificar la comunidad interesada en hacer seguimiento al objeto de vigilancia seleccionada, saber quiénes se ven afectados con el problema y motivar su participación </p>
+
+    <div class="form-vertical">
+
+        @*<div class="col-lg-12 form-group">*@
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.NombreObjeto</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="Personas o grupos que se ven afectados por el problema y que tengan intereses en hacer seguimiento al tema de vigilancia definido">
+                            @Html.LabelFor(model => model.Invitacion)
+                        </a>
+                        @Html.EditorFor(model => model.Invitacion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Invitacion, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="Son las formas a través de las cuales incentiva a los miembros de la comunidad a que apoyen el ejercicio de seguimiento y vigilancia ">
+                            @Html.LabelFor(model => model.ComoMotivar)
+                        </a>
+                        @Html.EditorFor(model => model.ComoMotivar, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ComoMotivar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="Son los medios a través de los cuales puede motivar la participación de la comunidad, algunas personas escuchan la radio, otras utilizan las redes sociales, otras se enteran de las cosas en los puntos de encuentro en el territorio.">
+                            @Html.LabelFor(model => model.CanalConvocatoria)
+                        </a>
+                        @Html.EditorFor(model => model.CanalConvocatoria, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CanalConvocatoria, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <a href="#" title="son fechas previas a la implementación del plan, programa o proyecto en las que se va a motivar la participación de la comunidad interesada">
+                            @Html.LabelFor(model => model.FechasConvocatoria)
+                        </a>
+                        @Html.EditorFor(model => model.FechasConvocatoria, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FechasConvocatoria, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <a href="#" title="Información más relevante relacionada con la problemática, el objeto de vigilancia seleccionado, los lugares afectados y los actores involucrados entre otros datos que se consideren relevantes.">
+                            @Html.LabelFor(model => model.MensajeConvocatoria)
+                        </a>
+                        @Html.EditorFor(model => model.MensajeConvocatoria, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CanalConvocatoria, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <a href="@Url.Action("ProyectosVeedor")" class="btn btn-success btn-sm">@(ArchivoDeRecursos.BotonRegresar)</a>
+                        <button class="btn btn-success btn-sm" type="submit">@(ArchivoDeRecursos.BotonGuardar)</button>
+                        <a href="@Url.Action("Exp",new { id = Model.PasosId, paso=2 })" class="btn btn-success btn-sm">Descargar reporte</a>
+                        <a href="@Url.Action("Paso3", new { id = Model.PasosId })" class="btn btn-success btn-sm">Siguiente paso</a>
+                        <a href="~/Content/Doc/PASOS2.pdf" class="btn btn-primary btn-sm" target="_blank">Ayuda</a>
+                        <br /><br />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+    
+    @section Scripts {
+        <script type="text/javascript">
+
+            //$('input, select, textarea').on("keypress", function () {
+            //    $input = $(this);
+            //    setTimeout(function () {
+            //        $input.val($input.val().toUpperCase());
+            //    }, 50);
+            //});
+
+
+            $('input, select, textarea').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                }
+            });
+
+
+        </script>
+    }
+
+}

@@ -1,0 +1,139 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.DatosGeo
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@Styles.Render("~/Content/assets/cssplantilla")
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Localización de proyectos a vigilar<br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 titulopag">
+    </div>
+</div><br /><br />
+            <div class="page-container">
+                @*<div class="banner1">
+            <img src="~/Content/img/riav/banner_localizacion.png" />
+        </div>*@
+                <div class="row">
+                     <div class="titulocentro col-sm-12 form-group">
+                        @Model.Subregion
+                    </div>
+
+                </div>
+            </div>
+
+@using (Html.BeginForm("DatosGeo", "Paginas", FormMethod.Get))
+{
+    @Html.HiddenFor(model => model.Subregion)
+    <div class="ibox-title">
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div id="divGridGF">
+                    <table id="grid-table"></table>
+                    <div id="grid-pager"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>  }
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+}
+
+@section GridSection {
+
+    <script type="text/javascript">
+
+
+        jQuery(function ($) {
+                var gridSelector = "#grid-table";
+                var pagerSelector = "#grid-pager";
+
+                //resize to fit page size
+                //$(window).on('resize.jqGrid', function () {
+                //    $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+                //});
+            $(window).resize(function () {
+                $targetGrid.setGridWidth($(gridSelector).parent().width()); //perhaps add padding calculation here?
+            });
+                //resize on sidebar collapse/expand
+                var parentColumn = $(gridSelector).closest('[class*="col-"]');
+                $(document).on('settings.ace.jqGrid', function (ev, eventName) {
+                    if (eventName === 'sidebar_collapsed' || eventName === 'main_container_fixed') {
+                        //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                        setTimeout(function () {
+                            $(gridSelector).jqGrid('setGridWidth', parentColumn.width());
+                        }, 0);
+                    }
+                });
+
+                function enableTooltips(table) {
+                    $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+                    $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+                }
+
+                $(document).one('ajaxloadstart.page', function () {
+                    $(gridSelector).jqGrid('GridUnload');
+                    $('.ui-jqdialog').remove();
+                });
+
+                function formatUrl(cellValue) {
+
+                     return "<a href='@Url.Action("Proyectosw")/" + cellValue + "'><u>Ver</u></a>";
+                }
+                 jQuery(gridSelector).jqGrid({
+                    height: '100%',
+                    autowidth: true,
+                    url: '@Url.Action("ObtenerDatosGeo", new { subregion = Model.Subregion })',
+                    mtype: 'POST',
+                     datatype: "json",
+                     colNames: ['Ver','Departamento', 'Municipio', 'Extension', 'PobTotal', 'PobRural', 'PobUrbana', 'PobHombres', 'PobMujeres', 'PobIndigena', 'PobAfro', 'PobPalenque', 'PobRaizal', 'PobRom', 'VeeduriasPaz', 'TotalVeedurías'],
+                    colModel: [
+                        { name: 'Id', index: 'Id', key: true, formatter: formatUrl, width: 70, align: "center" },
+                        { name: 'Departamento', index: 'Departamento', width: 200 },
+                        { name: 'Municipio', index: 'Municipio', width: 200 },
+                        { name: 'Extension', index: 'Extension', width: 150 },
+                        { name: 'PobTotal', index: 'PobTotal', width: 150 },
+                        { name: 'PobRural', index: 'PobRural', width: 150 },
+                        { name: 'PobUrbana', index: 'PoMunicipio', width: 150 },
+                        { name: 'PobHombres', index: 'Municipio', width: 150 },
+                        { name: 'PobMujeres', index: 'Municipio', width: 150 },
+                        { name: 'PobIndigena', index: 'Municipio', width: 150 },
+                        { name: 'PobAfro', index: 'Municipio', width: 150 },
+                        { name: 'PobPalenque', index: 'Municipio', width: 150 },
+                        { name: 'PobRaizal', index: 'Municipio', width: 150 },
+                        { name: 'PobRom', index: 'Municipio', width: 150 },
+                        { name: 'VeeduriasPaz', index: 'Municipio', width: 150 },
+                        { name: 'TotalVeedurías', index: 'Municipio', width: 150 },
+                       
+                    ],
+               viewrecords: false,
+               rowNum: 50,
+               rowList: [50,100, 150, 200, 500],
+                pager: pagerSelector,
+                altRows: true,
+                loadComplete: function () {
+                var table = this;
+                setTimeout(function () {
+                updatePagerIcons(table);
+                enableTooltips(table);
+                }, 0);
+                }
+                 });
+            $(window).triggerHandler('resize.jqGrid');
+        });
+
+    </script>
+}
+
+
+
+

@@ -1,0 +1,59 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.Perfil
+
+@{
+    ViewBag.Title = "Eliminar un perfil de usuario";
+    ViewBag.TituloFormulario = "Eliminar un perfil de usuario";
+    ViewBag.SubTituloFormulario = "";
+    
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombrePerfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombrePerfil)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm("EliminarPerfil", "Usuarios"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.NombrePerfil)
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-8">
+                    <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonEliminar)</button>
+                    <a href="@Url.Action("Perfiles")" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonCancelar)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

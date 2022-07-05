@@ -1,0 +1,135 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="Herramienta de acompañamiento a veeduria ciudadana">
+    <!-- META SECCION -->
+    <title>Herramienta de acompañamiento a veeduria ciudadana</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--FIN META SECTION -->
+
+    <link rel="stylesheet" type="text/css" href="~/Portal/css/styles.css" media="screen" />
+
+</head>
+<body>
+
+    <div class="page-container">
+        <header >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1 col-sm-2 col-4">
+                        <img src="~/Content/img/logo gov.co.png" />
+                    </div>
+                    <div class="col-lg-11 col-sm-10 col-8 hidden-xs">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-lg-1 col-sm-2 col-4">
+                        <img src="~/Content/img/Logo riav.png" />
+                    </div>
+                    <div class="col-lg-11 col-sm-10 col-8 hidden-xs">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- page header -->
+        <div class="page-header">
+            <!-- page header holder -->
+            <div class="page-header-holder">
+
+                <!-- page logo -->
+
+                <div class="container-fluid" style="padding-right: 0; padding-left: 0;">
+                    <section class="equipo_seccion_1">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6 col-sm-6">
+                            </div>
+
+                            <div class="col-md-6 col-xs-6 col-sm-6" style="padding-right: 30px;">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-2 ingreso">
+                    <div>
+                        <a href="~/cuenta/Registro/" class="btn btn-primary">
+                            Registrarse
+                        </a>
+                        <a href="~/cuenta/iniciarsesion/" class="btn btn-primary">
+                            Ingresar
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- ./page header holder -->
+        </div>
+
+
+
+        <!-- /section:basics/navbar.layout -->
+        <div class="main-container" id="main-container">
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            @RenderBody()
+                        </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.row -->
+                </div><!-- /.page-content -->
+            </div><!-- /.main-content -->
+        </div><!-- /.main-container -->
+       
+
+    </div>
+    <!-- basic scripts -->
+
+    <script type="text/javascript" src="~/Portal/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Portal/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="~/Portal/js/plugins/mixitup/jquery.mixitup.js"></script>-->
+    <script type="text/javascript" src="~/Portal/js/plugins/appear/jquery.appear.js"></script>
+    <script type="text/javascript" src="~/Portal/js/actions_front-end.js"></script>
+
+    <script>
+        $(window).on('load', function () {
+            $('#myModal').modal('show');
+        });
+    </script>
+
+    @*<script>
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            })
+        </script>*@
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='~/Content/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+    </script>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/scriptsplantilla")
+        @Scripts.Render("~/bundles/scriptspulep")
+        @RenderSection("scripts", required: false)*@
+   
+    
+   
+    <!-- ./page container -->
+    <!-- page scripts -->
+    
+
+</body>
+
+</html>

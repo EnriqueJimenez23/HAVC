@@ -1,0 +1,236 @@
+﻿<error errorId="d0a399c7-304c-405d-a5b3-89b95ab048a8" host="RUBYCC" type="System.NullReferenceException" message="Referencia a objeto no establecida como instancia de un objeto." source="App_Web_tltold20" detail="System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.&#xD;&#xA;   en ASP._Page_Views_Veedor_Paso1_cshtml.Execute() en C:\WK2021\CONTROLSOCIAL\CsWeb\Views\Veedor\Paso1.cshtml:línea 20&#xD;&#xA;   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.WebPages.StartPage.RunPage()&#xD;&#xA;   en System.Web.WebPages.StartPage.ExecutePageHierarchy()&#xD;&#xA;   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)&#xD;&#xA;   en System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)&#xD;&#xA;   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="VEEDOR SIERRA SIERRA NEVADA" time="2021-11-26T15:40:25.0716096Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:1317&#xD;&#xA;HTTP_CONTENT_TYPE:multipart/form-data; boundary=----WebKitFormBoundaryuLzYGEWRcOD70hqM&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-419,es;q=0.9&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=bVhqlpvmFCYUgT3OD5OJfhc1npjbbUt17XSqbjF5Kr9LW7qxq47HHj5br91w21EX-VmAffYjiByA_6jYtwHuBDyMRZBcjvgriS2CngKMBQQ1; ControlSocial=FE127057FFABDC97A013E8E0891A963F28FED0651B43CAF8AD79DB25B7FACF2B0982E9B76A987EE9781EAF6736690C7B4C04F3F2849012E24AA33476AE2A1B718279195CD65E3D34ED82D9DE12DE4B4D037AB84AD564073CE583F21435C52DF4D768D64E657449659CF360E8026DE5CA7B82CAC90C4F751A7EE55848920DFDECA765166E227B3ED158B806C2D7F545833A2714E227F3CFED58A9FEB954A6DBBA41D0931301FAEC3AC275D4140C5533829F0C29F99F5C05CC6090E84A1C43DE817AC3E6DCC8CA507307E3B0E683C31189; ASP.NET_SessionId=1qvgvcsdq00afbzic4htyzjn&#xD;&#xA;HTTP_HOST:localhost:49550&#xD;&#xA;HTTP_REFERER:http://localhost:49550/Veedor/Paso1/23&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36&#xD;&#xA;HTTP_SEC_CH_UA:&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;&#xD;&#xA;HTTP_SEC_CH_UA_MOBILE:?0&#xD;&#xA;HTTP_SEC_CH_UA_PLATFORM:&quot;Windows&quot;&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_ORIGIN:http://localhost:49550&#xD;&#xA;HTTP_SEC_FETCH_SITE:same-origin&#xD;&#xA;HTTP_SEC_FETCH_MODE:navigate&#xD;&#xA;HTTP_SEC_FETCH_USER:?1&#xD;&#xA;HTTP_SEC_FETCH_DEST:document&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Content-Length: 1317&#xD;&#xA;Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryuLzYGEWRcOD70hqM&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-419,es;q=0.9&#xD;&#xA;Cookie: __RequestVerificationToken=bVhqlpvmFCYUgT3OD5OJfhc1npjbbUt17XSqbjF5Kr9LW7qxq47HHj5br91w21EX-VmAffYjiByA_6jYtwHuBDyMRZBcjvgriS2CngKMBQQ1; ControlSocial=FE127057FFABDC97A013E8E0891A963F28FED0651B43CAF8AD79DB25B7FACF2B0982E9B76A987EE9781EAF6736690C7B4C04F3F2849012E24AA33476AE2A1B718279195CD65E3D34ED82D9DE12DE4B4D037AB84AD564073CE583F21435C52DF4D768D64E657449659CF360E8026DE5CA7B82CAC90C4F751A7EE55848920DFDECA765166E227B3ED158B806C2D7F545833A2714E227F3CFED58A9FEB954A6DBBA41D0931301FAEC3AC275D4140C5533829F0C29F99F5C05CC6090E84A1C43DE817AC3E6DCC8CA507307E3B0E683C31189; ASP.NET_SessionId=1qvgvcsdq00afbzic4htyzjn&#xD;&#xA;Host: localhost:49550&#xD;&#xA;Referer: http://localhost:49550/Veedor/Paso1/23&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36&#xD;&#xA;sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;&#xD;&#xA;sec-ch-ua-mobile: ?0&#xD;&#xA;sec-ch-ua-platform: &quot;Windows&quot;&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;Origin: http://localhost:49550&#xD;&#xA;Sec-Fetch-Site: same-origin&#xD;&#xA;Sec-Fetch-Mode: navigate&#xD;&#xA;Sec-Fetch-User: ?1&#xD;&#xA;Sec-Fetch-Dest: document&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/4/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\WK2021\CONTROLSOCIAL\CsWeb\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="VEEDOR SIERRA SIERRA NEVADA" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="VEEDOR SIERRA SIERRA NEVADA" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="VEEDOR SIERRA SIERRA NEVADA" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="1317" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundaryuLzYGEWRcOD70hqM" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="4" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/4" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Veedor/Paso1/23" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\WK2021\CONTROLSOCIAL\CsWeb\Veedor\Paso1\23" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="50381" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Veedor/Paso1/23" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="49550" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Veedor/Paso1/23" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="1317" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=----WebKitFormBoundaryuLzYGEWRcOD70hqM" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-419,es;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=bVhqlpvmFCYUgT3OD5OJfhc1npjbbUt17XSqbjF5Kr9LW7qxq47HHj5br91w21EX-VmAffYjiByA_6jYtwHuBDyMRZBcjvgriS2CngKMBQQ1; ControlSocial=FE127057FFABDC97A013E8E0891A963F28FED0651B43CAF8AD79DB25B7FACF2B0982E9B76A987EE9781EAF6736690C7B4C04F3F2849012E24AA33476AE2A1B718279195CD65E3D34ED82D9DE12DE4B4D037AB84AD564073CE583F21435C52DF4D768D64E657449659CF360E8026DE5CA7B82CAC90C4F751A7EE55848920DFDECA765166E227B3ED158B806C2D7F545833A2714E227F3CFED58A9FEB954A6DBBA41D0931301FAEC3AC275D4140C5533829F0C29F99F5C05CC6090E84A1C43DE817AC3E6DCC8CA507307E3B0E683C31189; ASP.NET_SessionId=1qvgvcsdq00afbzic4htyzjn" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:49550" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:49550/Veedor/Paso1/23" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" />
+    </item>
+    <item name="HTTP_SEC_CH_UA">
+      <value string="&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_MOBILE">
+      <value string="?0" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_PLATFORM">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:49550" />
+    </item>
+    <item name="HTTP_SEC_FETCH_SITE">
+      <value string="same-origin" />
+    </item>
+    <item name="HTTP_SEC_FETCH_MODE">
+      <value string="navigate" />
+    </item>
+    <item name="HTTP_SEC_FETCH_USER">
+      <value string="?1" />
+    </item>
+    <item name="HTTP_SEC_FETCH_DEST">
+      <value string="document" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="xn33fSDlDhgvSXOQI7kLkkAUM27R5yXs-XEb5nA8ItIdxLyjVfG8XkrBfr6jPYH2Td4XGdJnlrqK9LFM7AsnfBG7EkWZtL-H4elKcpTu2_B5H50x-M60mam6oikYeyZvFwRc5SEHDhypXn3c9sZm7Q2" />
+    </item>
+    <item name="PasosId">
+      <value string="23" />
+    </item>
+    <item name="NumPaso">
+      <value string="1" />
+    </item>
+    <item name="Problema">
+      <value string="" />
+    </item>
+    <item name="Territorio">
+      <value string="" />
+    </item>
+    <item name="Poblacion">
+      <value string="" />
+    </item>
+    <item name="ObjetoVigilar">
+      <value string="" />
+    </item>
+    <item name="NombreObjeto">
+      <value string="&quot;MEJORAMIENTO DE LA VÍA QUE COMUNICA MAQUENCAL-LAS VEGAS EN EL MUNICIPIO DE AGUSTÍN CODAZZI, EN EL DEPARTAMENTO DEL CESAR. " />
+    </item>
+    <item name="EntidadResponsable">
+      <value string="" />
+    </item>
+    <item name="ObjetoVeeduria">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="bVhqlpvmFCYUgT3OD5OJfhc1npjbbUt17XSqbjF5Kr9LW7qxq47HHj5br91w21EX-VmAffYjiByA_6jYtwHuBDyMRZBcjvgriS2CngKMBQQ1" />
+    </item>
+    <item name="ControlSocial">
+      <value string="FE127057FFABDC97A013E8E0891A963F28FED0651B43CAF8AD79DB25B7FACF2B0982E9B76A987EE9781EAF6736690C7B4C04F3F2849012E24AA33476AE2A1B718279195CD65E3D34ED82D9DE12DE4B4D037AB84AD564073CE583F21435C52DF4D768D64E657449659CF360E8026DE5CA7B82CAC90C4F751A7EE55848920DFDECA765166E227B3ED158B806C2D7F545833A2714E227F3CFED58A9FEB954A6DBBA41D0931301FAEC3AC275D4140C5533829F0C29F99F5C05CC6090E84A1C43DE817AC3E6DCC8CA507307E3B0E683C31189" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="1qvgvcsdq00afbzic4htyzjn" />
+    </item>
+  </cookies>
+</error>

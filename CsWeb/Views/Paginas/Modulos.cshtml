@@ -1,0 +1,100 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.ContenidoSitio
+
+@{
+    ViewBag.Title = "Formación";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<br />
+<div class="row">
+    <div class="col-sm-2 form-group">
+    </div>
+    <div class="col-sm-8 form-group tnormal">
+        <p>
+            Los siguientes 15 módulos se dividen en tres categorías sensibilización, fundamentación y focalización. Buscan preparar y cualificar a la ciudadanía en el ejercicio del control social a la gestión pública con el fin de fortalecer la confianza de los ciudadanos en el Estado y en la democracia.
+        </p>
+    </div>
+    <br /> <br />
+    <div class="col-sm-2 form-group">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3 form-group">
+    </div>
+    <div class="col-sm-6 ">
+        <div id="accordion1">
+
+            <div>
+                <a data-toggle="collapse" data-parent="#accordion" href="#m1">
+                    <img src="~/Content/img/riav/Recurso 48.png" style="max-width: 100%;">
+                </a>
+            </div>
+
+            <div id="m1" class="panel-collapse collapse">
+
+                @for (int i = 0; i < 2; i = i + 1)
+                {
+                    <br />
+                    <a href=@ViewBag.Lista[i].Enlace target="_blank">
+                        <img src="~/Content/img/Riav/@ViewBag.Lista[i].Imagen" style="max-width: 100%; " background-size: contain; />
+                    </a>
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2 form-group">
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-3 form-group">
+    </div>
+    <div class="col-sm-6 form-group">
+        <div class="" id="accordion2">
+            <a data-toggle="collapse" data-parent="#accordion" href="#m2">
+                <img src="~/Content/img/riav/Recurso 51.png" style="max-width: 100%;">
+            </a>
+        </div>
+        <div id="m2" class="panel-collapse collapse">
+            @for (int i = 2; i < 6; i = i + 1)
+            {
+                <br />
+                <a href=@ViewBag.Lista[i].Enlace target="_blank">
+                    <img src="~/Content/img/Riav/@ViewBag.Lista[i].Imagen" style="max-width: 100%; " background-size: contain; />
+                </a>
+                <br />
+            }
+        </div>
+    </div>
+
+    <div class="col-sm-2 form-group">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3 form-group">
+    </div>
+    <div class="col-sm-6 ">
+        <div class="" id="accordion3">
+            <a data-toggle="collapse" data-parent="#accordion" href="#m3">
+                <img src="~/Content/img/riav/Recurso 56.png" style="max-width: 100%;">
+            </a>
+        </div>
+
+        <div id="m3" class="panel-collapse collapse">
+            @for (int i = 6; i < 15; i = i + 1)
+            {
+                <br />
+                <a href=@ViewBag.Lista[i].Enlace target="_blank">
+                    <img src="~/Content/img/Riav/@ViewBag.Lista[i].Imagen" style="max-width: 100%; " background-size: contain; />
+                </a>
+                <br />
+            }
+        </div>
+    </div>
+    <div class="col-sm-2 form-group">
+    </div>
+</div>
+<br /> <br />

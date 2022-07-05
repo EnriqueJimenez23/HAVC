@@ -1,0 +1,100 @@
+﻿@using CapaServicios.Servicios
+@model CsWeb.Models.InicioSesionViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutBasico.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META SECCION -->
+    <title>Herramienta Veeduria Ciudadana</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--FIN META SECTION -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style_ingreso.css" media="screen" />
+
+</head>
+<body>
+    <!-- page container -->
+
+    <div class="page-container">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img src="~/Content/img/Logo riav.png" />
+                    <!-- Begin # DIV Form -->
+                    <div id="div-forms">
+
+                        <!-- Begin # Login Form -->
+                        @using (Html.BeginForm("IniciarSesion", "Cuenta", FormMethod.Post, new { id = "login-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="modal-body">
+
+                                @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Correo electrónico" } })
+                                @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
+
+                                @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contraseña" } })
+                                @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
+
+                                @*<div class="checkbox">
+                                    <label class="tipo_azul">
+                                        <input type="checkbox" id="Recordarme"> Recordarme
+                                    </label>
+                                </div>*@
+                            </div>
+
+                            <div class="modal-footer">
+                                <div>
+                                    <button type="submit" class="btn btn-warning btn-lg btn-block">Entrar</button>
+                                </div>
+
+                                <div>
+                                    <a href="@Url.Action("RecuperarContrasena")" class="btn btn-link">Olvidaste la contraseña</a>
+
+                                </div>
+
+                                <div>
+                                </div>
+                            </div>
+                        }
+                        <!-- End # Login Form -->
+
+
+
+
+                    </div>
+                    <!-- End # DIV Form -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End Popup -->
+        <!-- ./about -->
+        <!-- page footer wrap -->
+        <!-- social links -->
+        <!-- ./page footer -->
+    </div>
+
+    <!-- ./page container -->
+    <!-- page scripts -->
+  
+    <script type="text/javascript" src="~/Content/jsLogin/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/jsLogin/plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/jsLogin/plugins/appear/jquery.appear.js"></script>
+    <script type="text/javascript" src="~/Content/jsLogin/actions_front-end.js"></script>
+    
+
+
+
+
+    <script type="text/javascript">
+
+    </script>
+    <!-- pop/up -->
+    <!-- ./page scripts -->
+</body>
+
+</html>

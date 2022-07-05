@@ -1,0 +1,77 @@
+﻿<div class="row border-bottom white-bg">
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+            <a href="#" class="navbar-brand">Cidagro S.A.S</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active">
+            <a aria-expanded="false" role="button" href="@Url.Action("Ncasos","Ncaso")">Casos</a>
+        </li>
+                @*<li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">  Casos <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Ncasos","Ncaso")">Ver Casos</a></li>
+                        @* <li><a href="@Url.Action("CrearNcaso","Ncaso")">Ingreso Casos</a></li>
+                    </ul>
+                </li>*@
+
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Entidades <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        @*<li><a href="@Url.Action("Entidad","Entidad")">Ingresar entidad</a></li>
+                        <li><a href="@Url.Action("CrearSolicitantes","Entidad")">Ingresar solicitante</a></li>*@
+                        <li><a href="@Url.Action("Entidades","Entidad")">Ver veterinarias</a></li>
+                        <li><a href="@Url.Action("Solicitantes","Entidad")">Ver solicitantes</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="true" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Reportes <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="">Menu item</a></li>
+                        <li><a href="">Menu item</a></li>
+                        <li><a href="">Menu item</a></li>
+                        <li><a href="">Menu item</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Cargar datos <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("ImportarCH","Resultados")">Importar CH</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Usuarios <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="">Crear usuario</a></li>
+                        <li><a href="">Ver usuarios</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Configuración <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="">Catálogo de datos</a></li>
+                        <li><a href="">Variables de configuración</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">         
+                 <li>
+                     @User.Identity.Name
+                </li>
+                <li>
+                    <a href="@Url.Action("CerrarSesion", "Cuenta")">
+                        <i class="fa fa-sign-out fa-fw"></i> Salir
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    
+}
+@using (Html.BeginForm())
+{
+    String perfil = ViewBag.Perfil;
+    @Html.Hidden("Perfil", perfil)
+
+    if (ViewBag.Perfil == "Veedor")
+    {
+        ViewBag.TituloFormulario = "Pasos de control social - Guia";
+
+        <div class="row">
+            <div class="banner1">
+                <img src="~/Content/img/Riav/Instructivo1.png"  />
+              
+            </div>
+        </div>
+        }
+    }

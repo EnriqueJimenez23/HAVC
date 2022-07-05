@@ -1,0 +1,125 @@
+﻿@using CapaDominio.EntidadesNegocio
+@model CapaDominio.EntidadesNegocio.DatosGeo
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@Styles.Render("~/Content/assets/cssplantilla")
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 navmapa">
+        Inicio > Localización de proyectos a vigilar<br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1 titulopag">
+    </div>
+</div><br /><br />
+            <div class="page-container">
+                <div class="row">
+                     <div class="titulocentro col-sm-12 form-group">
+                        @Model.Municipio
+                    </div>
+
+                </div>
+            </div>
+
+@using (Html.BeginForm("DatosGeoM", "Paginas", FormMethod.Get))
+{
+    @Html.HiddenFor(model => model.CodMunicipio)
+    <div class="ibox-title tnormal">
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Extensión:</label>
+                <b>@Model.Extension</b>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Población total:</label>  
+                    <b>@Model.PobTotal</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Población rural:</label> 
+                    <b>@Model.PobRural</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Hombres:</label> 
+                    <b>@Model.PobHombres</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Mujeres:</label>
+                    <b>@Model.PobMujeres</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Indigena:</label>
+                    <b>@Model.PobIndigena</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Afrodescendiente:</label>  
+                    <b>@Model.PobAfro</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Palenque:</label> 
+                    <b>@Model.PobPalenque</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Raizal</label>
+                    <b>@Model.PobRaizal</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Rom</label>  
+                    <b>@Model.PobRom</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Rom:</label> 
+                    <b>@Model.PobRom</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Veedurias:</label> 
+                    <b>@Model.TotalVeedurías</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Veedurias paz:</label> 
+                    <b>@Model.VeeduriasPaz</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Juntas acción comunal</label>
+                    <b>@Model.TotalJuntas</b>
+                </div>
+            </div>
+
+        </div>
+}
+
+
+
+
+
+

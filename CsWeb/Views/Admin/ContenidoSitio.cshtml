@@ -1,0 +1,116 @@
+﻿@using CapaServicios.Servicios
+@model CapaDominio.EntidadesNegocio.ContenidoSitio
+
+@{
+    ViewBag.Title = "ADMINISTRACIÓN MICRO SITIO";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-vertical">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ContenidoSitioId)
+
+    <h2>Administración contenidos Micro sitio </h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Seccion)
+                    @Html.EditorFor(model => model.Seccion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Seccion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Titulo)
+                    @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Contenido)
+                    @Html.EditorFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Descripcion)
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = " form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Enlace)
+                    @Html.EditorFor(model => model.Enlace, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Enlace, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+
+                    @Html.LabelFor(model => model.Imagen)
+                    @Html.EditorFor(model => model.Imagen, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.PalabraClave)
+                    @Html.EditorFor(model => model.PalabraClave, new { htmlAttributes = new { @class = " form-control" } })
+                    @Html.ValidationMessageFor(model => model.PalabraClave, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.LabelFor(model => model.Publicar)
+                    <div class="form-control">
+                        @Html.RadioButtonFor(model => model.Publicar, "Si", new { @class = "" })Si
+                        &nbsp;&nbsp;
+                        @Html.RadioButtonFor(model => model.Publicar, "No", new { @class = "" })No
+                        @Html.ValidationMessageFor(model => model.Publicar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="@Url.Action("ContenidoSitio")" class="btn btn-success btn-sm">
+                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                        @(ArchivoDeRecursos.BotonRegresar)
+                    </a>
+                    <button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @(ArchivoDeRecursos.BotonGuardar)</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+       
+          
+            $('input, select').on('keydown', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    $('input, select, button')[$('input, select, button').index(this) + 1].focus();
+                }
+            });
+            $('input, select, textarea').on("keypress", function () {
+                $input = $(this);
+                setTimeout(function () {
+                    $input.val($input.val().toUpperCase());
+                }, 50);
+            })
+        });
+    </script>
+    }
+  
