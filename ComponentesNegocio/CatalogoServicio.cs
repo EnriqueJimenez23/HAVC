@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using CapaDatos.Repositorio.Repositories;
 using CapaDatos.Repositorio.UnitOfWork;
+using CapaDominio.ComponentesNegocio;
 using CapaDominio.ComponentesNegocio.Filtros;
 using CapaDominio.EntidadesNegocio;
 
 namespace CapaDominio.ComponentesNegocio
 {
-    public interface ICatalogoServicio 
+    public interface  ICatalogoServicio 
     {
         Catalogo Obtener(Catalogo filtro);
         Catalogo ObtenerZonaGeografica(string codigo);
