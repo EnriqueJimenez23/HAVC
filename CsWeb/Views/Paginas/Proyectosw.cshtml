@@ -1,10 +1,13 @@
 ﻿@using CapaDominio.EntidadesNegocio
 @model CapaDominio.EntidadesNegocio.Proyecto
-
+@using System;
 @{
+    var viewName = Path.GetFileNameWithoutExtension(VirtualPath);
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 @Styles.Render("~/Content/assets/cssplantilla")
+
+
 <div class="row">
     <div class="col-md-3 col-md-offset-1 navmapa">
         Inicio > Localización de proyectos a vigilar<br />
@@ -13,7 +16,9 @@
 <div class="row">
     <div class="col-md-3 col-md-offset-1 titulopag">
     </div>
-</div><br /><br />
+</div>
+<br />
+<br />
 <div class="page-container">
     <div class="banner1">
         <img src="~/Content/img/riav/banner_localizacion.png" />
@@ -22,8 +27,10 @@
     <br />
 </div>
 
-@using (Html.BeginForm("Proyectosw", "Paginas", FormMethod.Get))
-{
+
+
+
+<form id="frmBuscarProyecto">
     @Html.HiddenFor(model => model.Descripcion)
     @Html.HiddenFor(model => model.ProyectoId)
 
@@ -40,16 +47,16 @@
             </div>
             <div class="col-sm-15 form-group">
                 @Html.Label("Subregión PDET:")
-                @Html.DropDownList("FiltroRegion", (IEnumerable<SelectListItem>)ViewBag.ListaSubregion, new { @class = "form-control" })
+                @Html.DropDownList("Subregion", (IEnumerable<SelectListItem>)ViewBag.ListaSubregion, new { @class = "form-control", id = "FiltroRegion" })
             </div>
             <div class="col-sm-15 form-group">
                 @Html.Label("Departamento:")
-                @Html.DropDownList("FiltroDepartamento", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Departamento", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control", id = "FiltroDepartamento" })
             </div>
 
             <div class="col-sm-15 form-group">
                 @Html.Label("Municipio:")
-                @Html.DropDownList("FiltroMunicipio", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Municipio", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control", id = "FiltroMunicipio" })
             </div>
             <div class="col-sm-15 form-group">
             </div>
@@ -60,11 +67,11 @@
 
             <div class="col-sm-6 form-group">
                 @Html.Label("Nombre del proyecto:")
-                @Html.TextBox("FiltroNombre", null, htmlAttributes: new { @class = "form-control" })
+                @Html.TextBox("NombreProyecto", null, htmlAttributes: new { @class = "form-control", id = "FiltroNombre" })
             </div>
             <div class="col-sm-15 form-group">
                 <br />
-                <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Buscar</button>
+                <button class="btn btn-primary btn-sm" type="button" id='startSearch'><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Buscar</button>
 
             </div>
 
@@ -72,43 +79,47 @@
         <br />
         <br />
     </div>
-    <div class="ibox-title">
-        <br />
-        <br />
-        <div class="row">
-            <div class="col-sm-2 form-group">
-            </div>
-            <div class="col-sm-8">
-                <div id="divGridGF">
-                    <table id="grid-table"></table>
-                    <div id="grid-pager"></div>
-                </div>
-            </div>
-            <div class="col-sm-2">
+</form>
+<div class="ibox-title">
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-sm-2 form-group">
+        </div>
+        <div class="col-sm-8">
+            <div id="divGridGF">
+                <table id="grid-table"></table>
+                <div id="grid-pager"></div>
             </div>
         </div>
-    </div>
-
-
-    <div id="myModal1" class="modal" tabindex="-1">
-
-        <br /> <br /> <br /> <br />
-        <div class="row">
-            <div class="col-sm-2 form-group">
-            </div>
-            <div class="col-sm-8 form-group">
-                <div class="modal-body">
-                    <img src="~/Content/img/Riav/modalPr.png" style="max-width: 100%; " background-size: contain; />
-                </div>
-            </div>
-            <div class="col-sm-2 form-group">
-            </div>
+        <div class="col-sm-2">
         </div>
     </div>
+</div>
+
+
+<div id="myModal1" class="modal" tabindex="-1">
+
+    <br /> <br /> <br /> <br />
+    <div class="row">
+        <div class="col-sm-2 form-group">
+        </div>
+        <div class="col-sm-8 form-group">
+            <div class="modal-body">
+                <img src="~/Content/img/Riav/modalPr.png" style="max-width: 100%; " background-size: contain; />
+            </div>
+        </div>
+        <div class="col-sm-2 form-group">
+        </div>
+    </div>
+</div>
 
 
 
-}
+
+
+
+
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
@@ -209,20 +220,33 @@
 
 @section GridSection {
 
-    <script type="text/javascript">
+    <script>
+        loadGrid();
 
+        $("#startSearch").click(function () {
 
-        jQuery(function ($) {
-                var gridSelector = "#grid-table";
-                var pagerSelector = "#grid-pager";
+     //      $("#grid-table").jqGrid().setGridParam(postdata: $("#frmBuscarProyecto").serialize());
+            $("#grid-table").jqGrid('setGridParam',
+                {
+                   url: '@Url.Action("Proyectosw")',
+                    postData: {
+                        Municipio: function () { return jQuery("#FiltroMunicipio option:selected").val(); },
+                        NombreProyecto: function () { return jQuery("#FiltroNombre").val(); }
+                    },
+                })
+           
+            $("#grid-table").trigger("reloadGrid");
 
-                //resize to fit page size
-                //$(window).on('resize.jqGrid', function () {
-                //    $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
-                //});
-            $(window).resize(function () {
-                $targetGrid.setGridWidth($(gridSelector).parent().width()); //perhaps add padding calculation here?
-            });
+        });
+
+        var myReload = function () { $("#grid-table").trigger('reloadGrid'); };
+
+        $("#FiltroMunicipio").change(myReload).keyup(function (e) { keyupHandler(e, myReload, this); });
+
+        function loadGrid() {
+             var gridSelector = "#grid-table";
+             var pagerSelector = "#grid-pager";
+
                 //resize on sidebar collapse/expand
                 var parentColumn = $(gridSelector).closest('[class*="col-"]');
                 $(document).on('settings.ace.jqGrid', function (ev, eventName) {
@@ -245,41 +269,62 @@
                 });
 
                 function formatUrl(cellValue) {
-
-                     return "<a href='@Url.Action("Ficha")/" + cellValue + "'><u>Ver</u></a>";
+                    return "<a href='@Url.Action("Ficha")/" + cellValue + "'><u>Ver</u></a>";
                 }
-                 jQuery(gridSelector).jqGrid({
+
+                jQuery(gridSelector).jqGrid({
                     height: '100%',
                     autowidth: true,
-                    url: '@Url.Action("ObtenerProyectos", new { id=Model.ProyectoId,Descripcion = Model.Descripcion })',
+                    url: '@Url.Action("Proyectosw")',
                     mtype: 'POST',
-                     datatype: "json",
-                    colNames: ['Municipio','Proyecto', 'Entidad responsable','Ver mas'],
+                    datatype: "json",
+                    colNames: ['Municipio', 'Proyecto', 'Entidad responsable', 'Ver mas'],
                     colModel: [
                         { name: 'Municipio', index: 'Municipio', width: 100 },
-                        { name: 'NombreProyecto', index: 'NombreProyecto', width: 200},
-                        { name: 'EntidadResponsable', index: 'EntidadResponsable', width: 100},
-                        { name: 'Id', index: 'Id', key: true, formatter: formatUrl, width: 50, align: "center"},
+                        { name: 'NombreProyecto', index: 'NombreProyecto', width: 200 },
+                        { name: 'EntidadResponsable', index: 'EntidadResponsable', width: 100 },
+                        { name: 'Id', index: 'Id', key: true, formatter: formatUrl, width: 50, align: "center" },
                     ],
-               viewrecords: true,
-               rowNum: 50,
-               rowList: [50,100, 150, 200, 500],
-                pager: pagerSelector,
-                altRows: true,
-                loadComplete: function () {
-                var table = this;
-                setTimeout(function () {
-                updatePagerIcons(table);
-                enableTooltips(table);
-                }, 0);
-                }
-                 });
-            $(window).triggerHandler('resize.jqGrid');
-        });
+                    viewrecords: true,
+                    sortorder: "desc",
+
+                    sortable: true,
+                    rowNum: 25,
+                    rowList: [25,50, 100, 150, 200, 500],
+                    pager: pagerSelector,
+                    altRows: true,
+                    loadComplete: function () {
+                        var table = this;
+                        setTimeout(function () {
+                            updatePagerIcons(table);
+                            enableTooltips(table);
+                        }, 0);
+                    }
+                });
+          }
+
+            function updatePagerIcons(table) {
+                var replacement =
+                {
+                    'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                    'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                    'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                    'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+                };
+                $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function () {
+                    var icon = $(this);
+                    var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+                    if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+                });
+            }
+
 
     </script>
-}
 
+
+
+}
 
 
 

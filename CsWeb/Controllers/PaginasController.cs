@@ -149,6 +149,7 @@ namespace CsWeb.Controllers
             return View();
         }
         [ExcluirAutorizacion]
+        [HttpGet]
         public ActionResult Proyectosw(int? id,string Palabra)
         {
             Proyecto proyecto = new Proyecto();
@@ -165,13 +166,58 @@ namespace CsWeb.Controllers
             return View(proyecto);
         }
 
+        [HttpPost]
+        public JsonResult Proyectosw(int page, int rows,Proyecto model)
+        {
+            Proyecto filtro = null;
+
+            // Acceso a la capa de datos
+            filtro = new Proyecto
+            {
+                Subregion = model.Subregion,
+                CodDepartamento = model.Departamento,
+                CodMunicipio = model.Municipio,
+                NombreProyecto = model.NombreProyecto,
+            };
+            int cantidad;
+ 
+            var lista = _adminServicio.ListarProyectos(page, rows, out cantidad, filtro);
+            var jsonData = new
+            {
+                total = (int)Math.Ceiling((float)cantidad / rows),
+                page,
+                records = cantidad,
+                rows = (
+                   from item in lista
+                   select new
+                   {
+                       Id = item.ProyectoId,
+                       item.Subregion,
+                       item.EntidadResponsable,
+                       item.Departamento,
+                       item.Municipio,
+                       item.NombreProyecto,
+                       item.Punto,
+                       item.Pilar,
+                       item.EstadoProyecto,
+                   }).ToArray()
+            };
+
+
+            return Json(jsonData);
+        }
+
+
         [ExcluirAutorizacion]
         public ActionResult Proyectosgeo(string cod)
         {
             DatosGeo datos = _adminServicio.ObtenerDatosGeom(cod);
             return View(datos);
         }
+
+
         [ExcluirAutorizacion]
+        [HttpPost]
         public ActionResult ObtenerProyectos(string sidx, string sord, int page, int rows,int? id,string Descripcion)
         {
             Proyecto filtro = null;
