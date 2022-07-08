@@ -172,19 +172,16 @@
     </div>
     <!-- basic scripts -->
 
-    <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='~/Content/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
-        $(document).ready(function (e) {
-            $('img[usemap]').rwdImageMaps();
-        });
 
-    </script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/scriptsplantilla")
     @Scripts.Render("~/bundles/scriptspulep")
     @RenderSection("GridSection", required: false)
     @RenderSection("scripts", required: false)
+
+    
+
     <script type="text/javascript">
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()

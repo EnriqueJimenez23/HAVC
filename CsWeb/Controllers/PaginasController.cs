@@ -456,6 +456,10 @@ namespace CsWeb.Controllers
                     Value = x.CodDepartamento
                 }).ToList();
 
+                if (deptos.Count == 0)
+                {
+                    return RedirectToAction("InputError");
+                }
                 deptos.Insert(0, new SelectListItem { Text = ArchivoDeRecursos.Mensaje_SeleccioneUnaOpcion, Value = "" });
             }
             return new ContentResult { Content = JsonConvert.SerializeObject(deptos), ContentType = "application/json" };
@@ -465,6 +469,7 @@ namespace CsWeb.Controllers
         [ExcluirAutorizacion]
         public ActionResult ObtenerMunicipios(string codDepartamento, string subregion)
         {
+
             List<SelectListItem> municipios = new List<SelectListItem>();
             if (!string.IsNullOrEmpty(codDepartamento))
             {
@@ -475,6 +480,10 @@ namespace CsWeb.Controllers
                     Value = x.CodMunicipio
                 }).ToList();
 
+                if(municipios.Count == 0)
+                {
+                    return RedirectToAction("InputError");
+                }
                 municipios.Insert(0, new SelectListItem { Text = ArchivoDeRecursos.Mensaje_SeleccioneUnaOpcion, Value = "" });
             }
             return new ContentResult { Content = JsonConvert.SerializeObject(municipios), ContentType = "application/json" };
