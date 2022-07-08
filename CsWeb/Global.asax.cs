@@ -14,7 +14,7 @@ namespace CsWeb
 
         protected void Application_Start()
         {
-           
+            MvcHandler.DisableMvcResponseHeader = true;
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalNullableModelBinder());
 
