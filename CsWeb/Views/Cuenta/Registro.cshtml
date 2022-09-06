@@ -1,6 +1,8 @@
 ﻿@model CapaDominio.EntidadesNegocio.Veedor
 @using System.Globalization
 @using CapaServicios.Servicios
+@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
 @{
 
     ViewBag.TituloFormulario = "Información del registro";
@@ -110,6 +112,10 @@
                                         @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
                                         @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
                                     </div>
+                                    <div class="col-sm-12 form-group">
+                                        @Html.Captcha("Intentalo nuevamente", "Ingresa el texto que ves", 4, "Este campo es requerido",true)
+                                        <p class="text-danger">@ViewBag.ErrorMessage</p>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="row">
@@ -142,7 +148,7 @@
             </div>
         </div>
 
-       
+
     </div>
     @section Scripts {
         <script type="text/javascript">
@@ -225,7 +231,7 @@
                 cargarMunicipios();
             });
 
-        
+
         $('input, select, textarea').on('keydown', function (e) {
             var keyCode = e.keyCode || e.which;
             if (e.keyCode === 13) {

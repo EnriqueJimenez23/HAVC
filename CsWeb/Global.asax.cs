@@ -1,22 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using CaptchaMvc.Infrastructure;
+using CaptchaMvc.Interface;
+using CaptchaMvc.Models;
 using CsWeb.Infrastructure.Binders;
+
 
 namespace CsWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         const int TimedOutExceptionCode = -2147467259;
-
+        private static Random random = new Random();
         protected void Application_Start()
         {
             MvcHandler.DisableMvcResponseHeader = true;
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalNullableModelBinder());
+
+            //Captcha 
+            var captchaManager = (DefaultCaptchaManager)CaptchaUtils.CaptchaManager;
+            captchaManager.CharactersFactory = () => " my characters ";
+            captchaManager.PlainCaptchaPairFactory = length =>
+            {
+                string randomText = RandomText.Generate("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", length);
+                bool ignoreCase = false;
+                return new KeyValuePair<string, ICaptchaValue>(Guid.NewGuid().ToString("N"),
+                                      new StringCaptchaValue(randomText, randomText, ignoreCase));
+
+            };
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

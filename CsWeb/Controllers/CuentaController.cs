@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using CsWeb.Infrastructure.Notification;
 using CapaServicios.Servicios;
 using CsWeb.Filters;
+using CaptchaMvc.HtmlHelpers;
 
 namespace CsWeb.Controllers
 {
@@ -166,6 +167,7 @@ namespace CsWeb.Controllers
         [AllowAnonymous]
         public ActionResult Registro(Veedor model)
         {
+
             if (string.IsNullOrEmpty(model.Correo))
             {
                 ModelState.AddModelError("Correo", "* Obligatorio.");
@@ -204,6 +206,14 @@ namespace CsWeb.Controllers
                 ModelState.AddModelError("Autorizo", "* Obligatorio para el registro.");
             }
             ModelState.Remove("VeedorId");
+
+            if (!this.IsCaptchaValid(""))
+            {
+                ViewBag.ErrorMessage = "Error: el captcha no es válido.";
+                CargarViewBag();
+                return View(); ;
+            }
+
             if (ModelState.IsValid)
             {
                 Usuario usuario = new Usuario
