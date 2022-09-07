@@ -45,7 +45,7 @@ namespace CapaServicios.Servicios
                 Credentials = new NetworkCredential(emailAccountUserName, emailAccountPassword),
                 EnableSsl = Convert.ToBoolean(emailServerEnableSsl)
             };
-
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             smtpClient.Send(mailMessage); 
         }
 
