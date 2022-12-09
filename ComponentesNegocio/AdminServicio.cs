@@ -301,6 +301,7 @@ namespace CapaDominio.ComponentesNegocio
                 entidad.CanalConvocatoria = reg.CanalConvocatoria;
                 entidad.FechasConvocatoria = reg.FechasConvocatoria;
                 entidad.FechaCreado = reg.FechaCreado;
+                entidad.MensajeConvocatoria = reg.MensajeConvocatoria;
             }
             else if (reg.NumPaso == 3)
             {
@@ -331,7 +332,7 @@ namespace CapaDominio.ComponentesNegocio
             }
             else if (reg.NumPaso == 7)
             {
-                entidad.ObjetoVeeduria = reg.Impactos;
+                entidad.ObjetoVeeduria = reg.ObjetoVeeduria;
                 entidad.Introduccion = reg.Introduccion;
                 entidad.Metodologia = reg.Metodologia;
                 entidad.ResultadosInf = reg.ResultadosInf;

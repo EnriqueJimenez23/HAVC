@@ -104,7 +104,7 @@ namespace CapaDominio.EntidadesNegocio
         public static DataTable ExPaso2(int id)
         {
             StringBuilder query = new StringBuilder();
-            query.Append($"SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P.Invitacion as '¿A quiénes haría la invitación?', P.ComoMotivar as '¿Cómo motivaría la participación?',P.CanalConvocatoria as '¿Qué canales va a utilizar para la convocatoria?',P.FechasConvocatoria as '¿En qué fechas se va a realizar la convocatoria ?' FROM   Pasos AS P INNER JOIN  Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId  where P.PasosId={id}");
+            query.Append($" SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P.Invitacion as '¿A quiénes haría la invitación?', P.ComoMotivar as '¿Cómo motivaría la participación?',P.CanalConvocatoria as '¿Qué canales va a utilizar para la convocatoria?',P.FechasConvocatoria as '¿En qué fechas se va a realizar la convocatoria ?', p.MensajeConvocatoria as '¿Qué mensaje va a utilizar para la convocatoria?'\n FROM   Pasos AS P INNER JOIN  Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId  where P.PasosId={id}");
             DataTable dt = GetDT(query.ToString());
             return dt;
         }

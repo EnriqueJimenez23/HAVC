@@ -78,7 +78,7 @@
                               <a href="#" title="En el informe se hace la identificación del problema, la comunidad o población afectada, el lugar o territorio de implementación, se escribe literal el nombre del plan, programa o proyecto al que se le está haciendo seguimiento y se menciona la entidad pública responsable.">
                                   @Html.LabelFor(model => model.ObjetoVeeduria)
                               </a>
-                              @Html.EditorFor(model => model.ObjetoVeeduria, new { htmlAttributes = new { @class = "form-control" } })
+                              @Html.EditorFor(model => model.ObjetoVeeduria, new { htmlAttributes = new { @class = "form-control", @readOnly = "readOnly" } })
                               @Html.ValidationMessageFor(model => model.ObjetoVeeduria, "", new { @class = "text-danger" })
                           </div>
                           <div class="col-md-12">
