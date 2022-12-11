@@ -132,7 +132,7 @@ namespace CapaDominio.EntidadesNegocio
         public static DataTable ExPaso4(int id)
         {
             StringBuilder query = new StringBuilder();
-            query.Append($"SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P4.PasoCronograma as 'Paso cronograma', P4.QueHacer as 'Qué hay que hacer',P4.Responsables as 'Quiénes son los responsables de la tarea', P4.Recursos as 'Con qué recursos', P4.Fecha as 'Cuándo hacerlo', P4.Avance as 'Avance en porcentaje' FROM   Pasos AS P INNER JOIN Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId INNER JOIN             Pasos4 AS P4 ON P.PasosId = P4.PasosId where P.PasosId={id}");
+            query.Append($"SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P4.PasoCronograma as 'Paso cronograma', P4.QueHacer as 'Qué hay que hacer',P4.Responsables as 'Quiénes son los responsables de la tarea', P4.Recursos as 'Con qué recursos', P4.Avance as 'Avance en porcentaje', P4.Fecha as 'Fecha Cuándo hacerlo' FROM   Pasos AS P INNER JOIN Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId INNER JOIN             Pasos4 AS P4 ON P.PasosId = P4.PasosId where P.PasosId={id}");
             DataTable dt = GetDT(query.ToString());
             return dt;
         }
@@ -174,7 +174,7 @@ namespace CapaDominio.EntidadesNegocio
         public static DataTable ExPaso9(int id)
         {
             StringBuilder query = new StringBuilder();
-            query.Append($"SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P9.MedioDivulgacion as 'Qué medio va a utilizar para comunicar a la comunidad',P9.InformacionPresentar as 'Qué información va a presentar',P9.Herramientas as 'Qué herramienta va a utilizar para dar la información', P9.FechaDivulgacion as 'Fecha de divulgación a la comunidad', P9.AquienInvitara as 'A quién invitará' FROM   Pasos AS P INNER JOIN Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId INNER JOIN Pasos9 as P9 ON P.PasosId = P9.PasosId where P.PasosId={id}");
+            query.Append($"SELECT Pr.NombreProyecto AS 'Nombre proyecto', P.CodigoProyecto AS 'Código proyecto', P9.MedioDivulgacion as 'Qué medio va a utilizar para comunicar a la comunidad',P9.InformacionPresentar as 'Qué información va a presentar',P9.Herramientas as 'Qué herramienta va a utilizar para dar la información', P9.FechaDivulgacion as 'Fecha de divulgación a la comunidad', P9.AquienInvitara as 'A quién invitará', P9.Temas as 'Temas a tratar' FROM   Pasos AS P INNER JOIN Proyecto AS Pr ON P.ProyectoId = Pr.ProyectoId INNER JOIN Pasos9 as P9 ON P.PasosId = P9.PasosId where P.PasosId={id}");
             DataTable dt = GetDT(query.ToString());
             return dt;
         }

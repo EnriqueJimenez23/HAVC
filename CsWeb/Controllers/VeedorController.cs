@@ -396,7 +396,10 @@ namespace CsWeb.Controllers
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrEmpty(pasos.Otra))
+                {
                     pasos.PasoCronograma = pasos.Otra;
+                }
+                  
                  pasos.FechaCreado = DateTime.Now;
                  pasos.Usuario = UsuarioId;
                 _adminServicio.CrearPaso4(pasos);
@@ -817,6 +820,7 @@ namespace CsWeb.Controllers
                         item.NumeroInforme,
                         item.Actividad,
                         item.PlanSeguimiento,
+                        item.AccionesDespuesSeguimiento,
                         FechaProximoSeguimiento = item.FechaProximoSeguimiento.HasValue
                                    ? item.FechaProximoSeguimiento.Value.ToString("dd/MM/yyyy") : string.Empty,
                     }).ToArray()
@@ -844,6 +848,7 @@ namespace CsWeb.Controllers
                         item.InformacionPresentar,
                         item.Herramientas,
                         item.AquienInvitara,
+                        item.Temas,
                     }).ToArray()
             };
             return new ContentResult { Content = JsonConvert.SerializeObject(jsonData), ContentType = "application/json" };

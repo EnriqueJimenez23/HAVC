@@ -109,7 +109,7 @@
                         @Html.LabelFor(model => model.Temas)
                     </a>
                     @Html.EditorFor(model => model.Temas, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AquienInvitara, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Temas, "", new { @class = "text-danger" })
                 </div>
                 <br />
                 <div class="row">
@@ -162,9 +162,9 @@
                     url: '@Url.Action("CrearPaso9")',
                     type: 'POST',
                     dataType: 'json',
-                    data: { PasosId: $('#PasosId').val(), FechaDivulgacion: $('#FechaDivulgacion').val(), MedioDivulgacion: $('#MedioDivulgacion').val(), InformacionPresentar: $('#InformacionPresentar').val(), Herramientas: $('#Herramientas').val() },
+                    data: { PasosId: $('#PasosId').val(), FechaDivulgacion: $('#FechaDivulgacion').val(), MedioDivulgacion: $('#MedioDivulgacion').val(), InformacionPresentar: $('#InformacionPresentar').val(), Herramientas: $('#Herramientas').val(), AquienInvitara: $('#AquienInvitara').val(), Temas: $('#Temas').val() },
                     success: function (data) {
-                        $('#grid-table').trigger('reloadGrid'); $('#FechaDivulgacion').val(''); $('#MedioDivulgacion').val(''); $('#InformacionPresentar').val(''); $('#Herramientas').val('');
+                        $('#grid-table').trigger('reloadGrid'); $('#FechaDivulgacion').val(''); $('#MedioDivulgacion').val(''); $('#InformacionPresentar').val(''); $('#Herramientas').val(''); $('#AquienInvitara').val(''); $('#Temas').val('');
                     },
                 });
             }
@@ -233,7 +233,7 @@
                  url: '@Url.Action("ObtenerPaso9", new { id = Model.PasosId })',
                 mtype: 'POST',
                 datatype: "json",
-                colNames: ['', 'Fecha', 'Medio', 'Información', 'Herramientas','Aquien invitará'],
+                colNames: ['', 'Fecha', 'Medio', 'Información', 'Herramientas','Aquien invitará','Temas a tratar'],
                 colModel: [
                    { name: 'Pasos9Id', width: 1},
                     { name: 'FechaDivulgacion', width: 150, align: "center",sortable: true },
@@ -241,6 +241,7 @@
                     { name: 'InformacionPresentar', width: 200, sortable: true },
                     { name: 'Herramientas', width: 200, sortable: true },
                     { name: 'AquienInvitara', width: 200, sortable: true },
+                    { name: 'Temas', width: 200, sortable: true },
                 ],
                 viewrecords: true,
                 rowNum: 10,
